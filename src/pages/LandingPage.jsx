@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import logo from '../assets/imove-logo.png';
 import dashboardPreview from '../assets/dashboard-mockup.png';
+import heroImage from '../assets/heroImage.png';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -55,57 +56,73 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+      <section className="pt-40 pb-20 px-6 relative overflow-hidden">
         {/* Abstract Background Blur */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-blue-600/10 blur-[120px] rounded-full -z-10" />
+        <div className="absolute top-0 left-1/4 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/5 blur-[120px] rounded-full -z-10" />
         
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-left">
+            <motion.div
+              {...fadeInUp}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-8"
+            >
+              <Zap size={16} />
+              <span>Powering the future of mobility</span>
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent"
+            >
+              iMove Admin <br /> Control Center
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl text-slate-400 mb-10 leading-relaxed max-w-xl"
+            >
+              Monitor rides, manage users, track payments, and control operations 
+              in real time. Built for operational clarity and scale at the heart of our mission.
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row items-center gap-4"
+            >
+              <Link 
+                to="/login" 
+                className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-blue-600/20 active:scale-95 group"
+              >
+                Sign in to Admin Portal
+                <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <a 
+                href="#features" 
+                className="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-semibold transition-all active:scale-95 border border-slate-700"
+              >
+                System Overview
+              </a>
+            </motion.div>
+          </div>
+
           <motion.div
-            {...fadeInUp}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-8"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="relative hidden lg:block"
           >
-            <Zap size={16} />
-            <span>Powering the future of mobility</span>
-          </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent"
-          >
-            iMove Admin <br /> Control Center
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed"
-          >
-            Monitor rides, manage users, track payments, and control operations 
-            in real time. Built for operational clarity and scale at the heart of our mission.
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link 
-              to="/login" 
-              className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-blue-600/20 active:scale-95 group"
-            >
-              Sign in to Admin Portal
-              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <a 
-              href="#features" 
-              className="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-semibold transition-all active:scale-95 border border-slate-700"
-            >
-              System Overview
-            </a>
+            <div className="absolute inset-0 bg-blue-600/10 blur-[100px] rounded-full -z-10" />
+            <img 
+              src={heroImage} 
+              alt="iMove Platform" 
+              className="w-full h-auto rounded-[2rem] shadow-2xl border border-white/5 rotate-2 hover:rotate-0 transition-all duration-700"
+            />
           </motion.div>
         </div>
       </section>
