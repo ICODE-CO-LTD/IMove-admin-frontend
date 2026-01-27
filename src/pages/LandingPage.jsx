@@ -10,11 +10,13 @@ import {
   ChevronRight, 
   Lock,
   Zap,
-  CheckCircle2
+  CheckCircle2,
+  Globe
 } from 'lucide-react';
 import logo from '../assets/imove-logo-2.png';
 import dashboardPreview from '../assets/dashboard-mockup.png';
 import heroImage from '../assets/heroImage.png';
+import { useTranslation } from 'react-i18next';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -31,6 +33,17 @@ const staggerContainer = {
 };
 
 export default function LandingPage() {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
+  const navLinks = [
+    { href: "#features", label: t('landing.nav.features') },
+    { href: "#security", label: t('landing.nav.security') },
+  ];
+
   return (
     <div className="min-h-screen bg-[#0f172a] text-slate-200 selection:bg-blue-500/30 font-sans overflow-x-hidden">
       {/* Navigation */}
@@ -43,13 +56,29 @@ export default function LandingPage() {
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-            <a href="#features" className="hover:text-white transition-colors">Features</a>
-            <a href="#security" className="hover:text-white transition-colors">Security</a>
+            {navLinks.map(link => (
+              <a key={link.href} href={link.href} className="hover:text-white transition-colors">{link.label}</a>
+            ))}
+            
+            <div className="flex items-center gap-2 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700">
+              <Globe size={14} className="text-slate-400" />
+              <select 
+                value={i18n.language} 
+                onChange={(e) => changeLanguage(e.target.value)}
+                className="bg-transparent text-xs text-slate-300 focus:outline-none cursor-pointer uppercase font-bold"
+              >
+                <option value="rw" className="text-slate-900">RW</option>
+                <option value="en" className="text-slate-900">EN</option>
+                <option value="sw" className="text-slate-900">SW</option>
+                <option value="fr" className="text-slate-900">FR</option>
+              </select>
+            </div>
+
             <Link 
               to="/login" 
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full transition-all hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] active:scale-95"
             >
-              Sign In
+              {t('landing.nav.signIn')}
             </Link>
           </div>
         </div>
@@ -67,7 +96,7 @@ export default function LandingPage() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-8"
             >
               <Zap size={16} />
-              <span>Powering the future of mobility</span>
+              <span>{t('landing.hero.badge')}</span>
             </motion.div>
             
             <motion.h1 
@@ -76,7 +105,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent"
             >
-              iMove Admin <br /> Control Center
+              {t('landing.hero.title')}
             </motion.h1>
             
             <motion.p 
@@ -85,8 +114,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl text-slate-400 mb-10 leading-relaxed max-w-xl"
             >
-              Monitor rides, manage users, track payments, and control operations 
-              in real time. Built for operational clarity and scale at the heart of our mission.
+              {t('landing.hero.subtitle')}
             </motion.p>
             
             <motion.div 
@@ -99,14 +127,14 @@ export default function LandingPage() {
                 to="/login" 
                 className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-blue-600/20 active:scale-95 group"
               >
-                Sign in to Admin Portal
+                {t('landing.hero.ctaLogin')}
                 <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <a 
                 href="#features" 
                 className="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-semibold transition-all active:scale-95 border border-slate-700"
               >
-                System Overview
+                {t('landing.hero.ctaSystem')}
               </a>
             </motion.div>
           </div>
@@ -159,8 +187,8 @@ export default function LandingPage() {
       <section id="features" className="py-24 px-6 bg-slate-900/50 border-y border-slate-800 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Core Capabilities</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">Comprehensive tools designed to manage every aspect of the ride-hailing experience.</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">{t('landing.features.title')}</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto">{t('landing.features.subtitle')}</p>
           </div>
           
           <motion.div 
@@ -173,33 +201,33 @@ export default function LandingPage() {
             {[
               { 
                 icon: <Map className="text-blue-500" />, 
-                title: "Live Ride Monitoring", 
-                description: "Real-time tracking of riders and passengers on the map with sub-second latency." 
+                title: t('landing.features.liveMap'), 
+                description: t('landing.features.liveMapDesc')
               },
               { 
                 icon: <Users className="text-emerald-500" />, 
-                title: "User Management", 
-                description: "Control rider and passenger accounts, handle verification, and manage status instantly." 
+                title: t('landing.features.users'), 
+                description: t('landing.features.usersDesc')
               },
               { 
                 icon: <CreditCard className="text-amber-500" />, 
-                title: "Payment Oversight", 
-                description: "Monitor MTN MoMo & Airtel Money transactions with integrated reconciliation tools." 
+                title: t('landing.features.payments'), 
+                description: t('landing.features.paymentsDesc')
               },
               { 
                 icon: <BarChart3 className="text-purple-500" />, 
-                title: "Analytics & Reports", 
-                description: "Deep-dive ride history, revenue insights, and automated report exports." 
+                title: t('landing.features.analytics'), 
+                description: t('landing.features.analyticsDesc')
               },
               { 
                 icon: <Settings className="text-rose-500" />, 
-                title: "System Configuration", 
-                description: "Fine-tune fare rules, zones, and service availability at a moment's notice." 
+                title: t('landing.features.config'), 
+                description: t('landing.features.configDesc')
               },
               { 
                 icon: <Shield className="text-sky-500" />, 
-                title: "Audit & Logs", 
-                description: "Track system activities and significant events with complete transparency." 
+                title: t('landing.features.audit'), 
+                description: t('landing.features.auditDesc')
               }
             ].map((feature, idx) => (
               <motion.div
@@ -222,13 +250,13 @@ export default function LandingPage() {
       <section id="security" className="py-24 px-6 relative">
          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-8">Security & Integrity <br />by Design</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-8">{t('landing.security.title')}</h2>
               <div className="space-y-6">
                  {[
-                   { title: "Role-Based Access Control", desc: "Granular permissions for different administrative levels." },
-                   { title: "Encrypted Authentication", desc: "Industry-standard JWT encryption for all active sessions." },
-                   { title: "Secure Data Pipelines", desc: "Encrypted communication between mobile app, web app, and DB." },
-                   { title: "Comprehensive Audit Trail", desc: "Every action is logged and searchable for accountability." }
+                   { title: t('landing.security.rbac'), desc: t('landing.security.rbacDesc') },
+                   { title: t('landing.security.encryption'), desc: t('landing.security.encryptionDesc') },
+                   { title: t('landing.security.pipelines'), desc: t('landing.security.pipelinesDesc') },
+                   { title: t('landing.security.audit'), desc: t('landing.security.auditDesc') }
                  ].map((item, i) => (
                    <div key={i} className="flex gap-4">
                       <div className="mt-1 flex-shrink-0">
@@ -248,8 +276,8 @@ export default function LandingPage() {
                   <div className="w-20 h-20 bg-blue-600/20 rounded-full flex items-center justify-center mb-6">
                     <Lock size={40} className="text-blue-500" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">Zero-Trust Architecture</h3>
-                  <p className="text-slate-400 mb-8">All operations are authenticated and authorized under our security-first protocol.</p>
+                  <h3 className="text-2xl font-bold mb-2">{t('landing.security.zeroTrust')}</h3>
+                  <p className="text-slate-400 mb-8">{t('landing.security.zeroTrustDesc')}</p>
                   <div className="w-full p-4 bg-slate-900 rounded-xl border border-white/5 font-mono text-xs text-blue-400">
                     &gt; ACCESS_TOKEN_HASHED: [REDACTED] <br />
                     &gt; STATUS: ENCRYPTED <br />
@@ -265,17 +293,17 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto py-20 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[3rem] text-center px-6 relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 blur-3xl -mr-32 -mt-32 rounded-full" />
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Access iMove Admin Portal</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">{t('landing.cta.title')}</h2>
             <p className="text-blue-50 text-lg mb-10 max-w-xl mx-auto opacity-80">
-              Enter our secure environment to manage operations and ensure the highest quality of service.
+              {t('landing.cta.subtitle')}
             </p>
             <Link 
               to="/login" 
               className="inline-block px-10 py-4 bg-white text-blue-600 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-colors shadow-xl active:scale-95"
             >
-              Go to Login
+              {t('landing.cta.button')}
             </Link>
-            <p className="mt-6 text-sm text-blue-100/60 font-medium">Authorized personnel only</p>
+            <p className="mt-6 text-sm text-blue-100/60 font-medium">{t('landing.cta.authOnly')}</p>
           </div>
         </div>
       </section>
@@ -291,13 +319,13 @@ export default function LandingPage() {
            <div className="flex gap-8 text-xs text-slate-500 uppercase tracking-widest font-bold">
               <span className="flex items-center gap-2">
                  <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                 Production Environment
+                 {t('landing.footer.production')}
               </span>
               <span>v1.2.0-secure</span>
            </div>
            
            <div className="text-slate-500 text-sm">
-             Support: <a href="mailto:support@imove.com" className="hover:text-white transition-colors">support@imove.com</a>
+             {t('landing.footer.support')}: <a href="mailto:support@imove.com" className="hover:text-white transition-colors">support@imove.com</a>
            </div>
         </div>
       </footer>
