@@ -4,8 +4,10 @@ import { adminService } from '../../services/adminService';
 import { Loader2, Search, Filter, MoreVertical, Eye, Ban, CheckCircle, Trash2, Plus } from 'lucide-react';
 import { format } from 'date-fns';
 import AddUserModal from './AddUserModal';
+import { useTranslation } from 'react-i18next';
 
 export default function UserTable() {
+  const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
   const [role, setRole] = useState('');
@@ -21,7 +23,7 @@ export default function UserTable() {
   });
 
   const handleDelete = (userId) => {
-    if (window.confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+    if (window.confirm(t('common.confirmDelete'))) {
       deleteMutation.mutate(userId);
     }
   };
@@ -60,7 +62,7 @@ export default function UserTable() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
           <input
             type="text"
-            placeholder="Search users..."
+            placeholder={t('common.search')}
             className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={search}
             onChange={handleSearch}
@@ -74,17 +76,17 @@ export default function UserTable() {
             value={role}
             onChange={handleRoleFilter}
           >
-            <option value="">All Roles</option>
-            <option value="passenger">Passenger</option>
-            <option value="rider">Rider</option>
-            <option value="admin">Admin</option>
+            <option value="">{t('users.allRoles')}</option>
+            <option value="passenger">{t('users.passenger')}</option>
+            <option value="rider">{t('users.rider')}</option>
+            <option value="admin">{t('users.admin')}</option>
           </select>
           <button 
             onClick={() => setIsAddUserOpen(true)}
             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
           >
             <Plus size={16} />
-            Add User
+            {t('users.addUser')}
           </button>
         </div>
       </div>
@@ -93,12 +95,12 @@ export default function UserTable() {
         <table className="w-full text-left text-sm text-slate-600">
           <thead className="bg-slate-50 text-slate-700 font-semibold uppercase text-xs">
             <tr>
-              <th className="px-6 py-4">User</th>
-              <th className="px-6 py-4">Role</th>
-              <th className="px-6 py-4">Status</th>
-              <th className="px-6 py-4">Verification</th>
-              <th className="px-6 py-4">Joined</th>
-              <th className="px-6 py-4 text-right">Actions</th>
+              <th className="px-6 py-4">{t('common.role')}</th>
+              <th className="px-6 py-4">{t('common.role')}</th>
+              <th className="px-6 py-4">{t('common.status')}</th>
+              <th className="px-6 py-4">{t('users.verification')}</th>
+              <th className="px-6 py-4">{t('users.joined')}</th>
+              <th className="px-6 py-4 text-right">{t('common.actions')}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
@@ -121,13 +123,13 @@ export default function UserTable() {
                       user.role === 'rider' ? 'bg-orange-100 text-orange-800' :
                       'bg-blue-100 text-blue-800'
                     }`}>
-                    {user.role}
+                    {t(`users.${user.role}`)}
                   </span>
                 </td>
                 <td className="px-6 py-4">
                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize
                     ${user.suspension?.is_suspended ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'}`}>
-                    {user.suspension?.is_suspended ? 'Suspended' : 'Active'}
+                    {user.suspension?.is_suspended ? t('users.suspended') : t('users.active')}
                   </span>
                 </td>
                 <td className="px-6 py-4">
@@ -137,7 +139,7 @@ export default function UserTable() {
                         user.approval_status === 'rejected' ? 'bg-red-100 text-red-800' :
                         'bg-yellow-100 text-yellow-800'
                       }`}>
-                      {user.approval_status}
+                      {t(`users.${user.approval_status}`)}
                     </span>
                   ) : (
                     <span className="text-slate-400">-</span>
@@ -150,7 +152,7 @@ export default function UserTable() {
                   <button 
                     onClick={() => handleDelete(user._id)}
                     className="text-slate-400 hover:text-red-600 p-2 transition-colors"
-                    title="Delete User"
+                    title={t('common.delete')}
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>

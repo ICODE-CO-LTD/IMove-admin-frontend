@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { adminService } from '../../services/adminService';
 import { X, Loader2, Save } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function AddUserModal({ isOpen, onClose }) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     full_name: '',
     email: '',
@@ -40,7 +42,7 @@ export default function AddUserModal({ isOpen, onClose }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in duration-200">
         <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
-          <h3 className="text-lg font-bold text-slate-800">Add New User</h3>
+          <h3 className="text-lg font-bold text-slate-800">{t('users.modalTitle')}</h3>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600 transition-colors">
             <X size={20} />
           </button>
@@ -54,7 +56,7 @@ export default function AddUserModal({ isOpen, onClose }) {
           )}
           
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">{t('users.fullName')}</label>
             <input
               type="text"
               required
@@ -65,7 +67,7 @@ export default function AddUserModal({ isOpen, onClose }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">{t('auth.email')}</label>
             <input
               type="email"
               required
@@ -76,7 +78,7 @@ export default function AddUserModal({ isOpen, onClose }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Phone</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">{t('users.phone')}</label>
             <input
               type="tel"
               required
@@ -87,20 +89,20 @@ export default function AddUserModal({ isOpen, onClose }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Role</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">{t('common.role')}</label>
             <select
               className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={formData.role}
               onChange={(e) => setFormData({...formData, role: e.target.value})}
             >
-              <option value="passenger">Passenger</option>
-              <option value="rider">Rider</option>
-              <option value="admin">Admin</option>
+              <option value="passenger">{t('users.passenger')}</option>
+              <option value="rider">{t('users.rider')}</option>
+              <option value="admin">{t('users.admin')}</option>
             </select>
           </div>
 
           <div>
-             <label className="block text-sm font-medium text-slate-700 mb-1">Initial Password</label>
+             <label className="block text-sm font-medium text-slate-700 mb-1">{t('users.initialPassword')}</label>
              <input
               type="text"
               required
@@ -108,7 +110,7 @@ export default function AddUserModal({ isOpen, onClose }) {
               value={formData.password}
               onChange={(e) => setFormData({...formData, password: e.target.value})}
              />
-             <p className="text-xs text-slate-400 mt-1">User can change this later.</p>
+             <p className="text-xs text-slate-400 mt-1">{t('users.passwordNote')}</p>
           </div>
 
           <div className="pt-4 flex justify-end gap-3">
@@ -117,7 +119,7 @@ export default function AddUserModal({ isOpen, onClose }) {
               onClick={onClose}
               className="px-4 py-2 text-slate-600 hover:bg-slate-50 rounded-lg font-medium transition-colors"
             >
-              Cancel
+              {t('common.cancel')}
             </button>
             <button
               type="submit"
@@ -125,7 +127,7 @@ export default function AddUserModal({ isOpen, onClose }) {
               className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium flex items-center gap-2 transition-colors disabled:opacity-50"
             >
               {createMutation.isPending ? <Loader2 className="animate-spin" size={18} /> : <Save size={18} />}
-              Create User
+              {t('users.createUser')}
             </button>
           </div>
         </form>
