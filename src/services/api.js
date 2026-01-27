@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1', // Update based on actual backend URL
+  baseURL: import.meta.env.VITE_API_URL || 'https://imove-v2-backend.onrender.com/api', // Update based on actual backend URL
   headers: {
     'Content-Type': 'application/json',
   },

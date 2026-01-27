@@ -10,13 +10,20 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    const storedUser = localStorage.getItem('user');
+
     if (token) {
       try {
         const decoded = jwtDecode(token);
-        // Add check for token expiration if needed
-        setUser(decoded); // Or fetch full user data from backend
+        const isExpired = decoded.exp * 1000 < Date.now();
+        
+        if (isExpired) {
+          logout();
+        } else {
+          setUser(storedUser ? JSON.parse(storedUser) : decoded);
+        }
       } catch (error) {
-        console.error("Invalid token", error);
+        console.error("Invalid session", error);
         logout();
       }
     }
@@ -24,13 +31,17 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    const response = await api.post('/auth/login', { email, password }); // Adjust endpoint
-    const { token, refreshToken, user } = response.data;
-    localStorage.setItem('token', token);
-    localStorage.setItem('refreshToken', refreshToken);
-    localStorage.setItem('user', JSON.stringify(user));
-    setUser(user);
-    return user;
+    const response = await api.post('/auth/login', { email, password });
+    const { tokens, user } = response.data;
+    
+    if (tokens && tokens.access_token) {
+      localStorage.setItem('token', tokens.access_token);
+      localStorage.setItem('refreshToken', tokens.refresh_token);
+      localStorage.setItem('user', JSON.stringify(user));
+      setUser(user);
+      return user;
+    }
+    throw new Error('Invalid login response');
   };
 
   const logout = () => {
