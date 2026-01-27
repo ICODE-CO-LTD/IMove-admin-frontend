@@ -61,7 +61,7 @@ export default function Dashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-slate-500">{stat.label}</p>
-                <p className="text-2xl font-bold text-slate-900 mt-1">{stat.value}</p>
+                <p className="text-xl font-bold text-slate-900 mt-1 truncate max-w-[150px]" title={String(stat.value)}>{stat.value}</p>
               </div>
               <div className={`p-3 rounded-lg ${stat.bg}`}>
                 <stat.icon className={`w-6 h-6 ${stat.color}`} />
