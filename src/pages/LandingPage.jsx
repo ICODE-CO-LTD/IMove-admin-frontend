@@ -12,7 +12,7 @@ import {
   Zap,
   CheckCircle2
 } from 'lucide-react';
-import logo from '../assets/imove-logo.png';
+import logo from '../assets/imove-logo-2.png';
 import dashboardPreview from '../assets/dashboard-mockup.png';
 import heroImage from '../assets/heroImage.png';
 

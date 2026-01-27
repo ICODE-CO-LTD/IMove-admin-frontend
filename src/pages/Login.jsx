@@ -4,7 +4,7 @@ import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Loader2, Mail, Lock, Eye, EyeOff, ChevronLeft } from 'lucide-react';
 import ridersBg from '../assets/riders.png';
-import logo from '../assets/imove-logo.png';
+import logo from '../assets/imove-logo-2.png';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -58,14 +58,14 @@ export default function Login() {
             <ChevronLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
             <span className="text-sm font-medium">Back to Landing</span>
           </Link>
-          <img src={logo} alt="iMove Logo" className="h-12 w-auto mb-4" />
-          <h1 className="text-3xl font-extrabold text-white tracking-tight">Welcome Back</h1>
+          <img src={logo} alt="iMove Logo" className="h-14 w-auto mb-2" />
+          <h1 className="text-3xl font-extrabold text-blue-500 tracking-tight">IMove </h1>
           <p className="text-slate-400 mt-2 text-center text-sm">
             Please sign in with your administrator credentials to manage the platform.
           </p>
         </div>
 
-        <div className="bg-slate-900/40 backdrop-blur-2xl p-8 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden group">
+        <div className="bg-slate-900/40 backdrop-blur-3xl p-8 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden group">
           {/* Subtle top edge highlight */}
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
@@ -83,7 +83,7 @@ export default function Login() {
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-2">
               <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Email Address</label>
-              <div className="relative group/field">
+              <div className="relative group/field ">
                 <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/field:text-blue-500 transition-colors">
                   <Mail size={18} />
                 </div>
