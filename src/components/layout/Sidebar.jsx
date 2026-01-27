@@ -1,20 +1,26 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Users, Map, Clock, CreditCard, Settings, FileText, LogOut } from 'lucide-react';
+import { LayoutDashboard, Users, Map, Clock, CreditCard, Settings, FileText, LogOut, Globe } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { cn } from '../../lib/utils';
-
-const navItems = [
-  { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
-  { icon: Map, label: 'Live Map', path: '/map' },
-  { icon: Users, label: 'Users', path: '/users' },
-  { icon: Clock, label: 'History', path: '/history' },
-  { icon: CreditCard, label: 'Payment', path: '/payments' },
-  { icon: Settings, label: 'Configuration', path: '/config' },
-  { icon: FileText, label: 'Audit Logs', path: '/logs' },
-];
+import { useTranslation } from 'react-i18next';
 
 export default function Sidebar() {
   const { logout } = useAuth();
+  const { t, i18n } = useTranslation();
+
+  const navItems = [
+    { icon: LayoutDashboard, label: t('sidebar.dashboard'), path: '/dashboard' },
+    { icon: Map, label: t('sidebar.liveMap'), path: '/map' },
+    { icon: Users, label: t('sidebar.users'), path: '/users' },
+    { icon: Clock, label: t('sidebar.rides'), path: '/history' },
+    { icon: CreditCard, label: t('sidebar.payments'), path: '/payments' },
+    { icon: Settings, label: t('sidebar.settings'), path: '/config' },
+    { icon: FileText, label: t('sidebar.auditLogs'), path: '/logs' },
+  ];
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <aside className="w-64 bg-slate-900 text-white h-screen flex flex-col fixed left-0 top-0 overflow-y-auto">
@@ -44,13 +50,27 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      <div className="p-4 border-t border-slate-800">
+      <div className="p-4 border-t border-slate-800 space-y-4">
+        <div className="px-4 py-2 bg-slate-800 rounded-lg flex items-center gap-3">
+          <Globe size={16} className="text-slate-400" />
+          <select 
+            value={i18n.language} 
+            onChange={(e) => changeLanguage(e.target.value)}
+            className="bg-transparent text-sm text-white focus:outline-none w-full cursor-pointer uppercase font-medium"
+          >
+            <option value="rw" className="text-slate-900">Kinyarwanda (RW)</option>
+            <option value="en" className="text-slate-900">English (EN)</option>
+            <option value="sw" className="text-slate-900">Kiswahili (SW)</option>
+            <option value="fr" className="text-slate-900">Français (FR)</option>
+          </select>
+        </div>
+
         <button
           onClick={logout}
           className="flex items-center gap-3 w-full px-4 py-3 text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
         >
           <LogOut size={20} />
-          <span className="font-medium">Logout</span>
+          <span className="font-medium">{t('sidebar.logout')}</span>
         </button>
       </div>
     </aside>

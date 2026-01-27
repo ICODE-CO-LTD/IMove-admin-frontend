@@ -3,8 +3,10 @@ import { adminService } from '../services/adminService';
 import { Users, Car, DollarSign, Activity, TrendingUp, ArrowUpRight } from 'lucide-react';
 import { Loader2 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
+import { useTranslation } from 'react-i18next';
 
 export default function Dashboard() {
+  const { t } = useTranslation();
   const { data, isLoading } = useQuery({
     queryKey: ['dashboard-stats'],
     queryFn: adminService.getDashboardStats,
@@ -18,15 +20,15 @@ export default function Dashboard() {
 
   const statCards = [
     { 
-      label: 'Total Users', 
+      label: t('dashboard.totalUsers'), 
       value: stats?.users?.totalPassengers + stats?.users?.totalRiders || 0,
-      subtext: `${stats?.users?.totalRiders || 0} Riders`, 
+      subtext: `${stats?.users?.totalRiders || 0} ${t('dashboard.riders')}`, 
       icon: Users, 
       color: 'text-blue-600', 
       bg: 'bg-blue-100' 
     },
     { 
-      label: 'Active Rides', 
+      label: t('dashboard.activeRides'), 
       value: stats?.rides?.today || 0, 
       subtext: `Total: ${stats?.rides?.total || 0}`, 
       icon: Car, 
@@ -34,7 +36,7 @@ export default function Dashboard() {
       bg: 'bg-purple-100' 
     },
     { 
-      label: 'Revenue (Total)', 
+      label: t('dashboard.revenue'), 
       value: `${(stats?.earnings?.total || 0).toLocaleString()} RWF`, 
       subtext: `Admin: ${(stats?.earnings?.adminRevenue || 0).toLocaleString()} RWF`, 
       icon: DollarSign, 
@@ -42,9 +44,9 @@ export default function Dashboard() {
       bg: 'bg-green-100' 
     },
     { 
-      label: 'Active Riders', 
+      label: t('dashboard.activeRiders'), 
       value: stats?.users?.activeRiders || 0, 
-      subtext: 'Online now', 
+      subtext: t('dashboard.onlineNow'), 
       icon: Activity, 
       color: 'text-orange-600', 
       bg: 'bg-orange-100' 
@@ -53,7 +55,7 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-slate-800">Dashboard Overview</h2>
+      <h2 className="text-2xl font-bold text-slate-800">{t('dashboard.title')}</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {statCards.map((stat, index) => (
@@ -77,7 +79,7 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 h-96">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Revenue Overview</h3>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">{t('dashboard.chartRevenue')}</h3>
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={stats?.chartData?.revenue || []}>
               <defs>
@@ -99,7 +101,7 @@ export default function Dashboard() {
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 h-96">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Ride Activity</h3>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">{t('dashboard.chartRides')}</h3>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={stats?.chartData?.rides || []}>
               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E2E8F0" />
