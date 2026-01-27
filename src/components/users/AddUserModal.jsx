@@ -23,7 +23,8 @@ export default function AddUserModal({ isOpen, onClose }) {
       setFormData({ full_name: '', email: '', phone: '', password: '', role: 'passenger' });
     },
     onError: (err) => {
-      setError(err.message || 'Failed to create user');
+      const errorMessage = err.response?.data?.message || err.response?.data?.error || err.message || 'Failed to create user';
+      setError(errorMessage);
     }
   });
 
