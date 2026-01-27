@@ -8,6 +8,7 @@ import RideHistory from './pages/RideHistory';
 import Payments from './pages/Payments';
 import Settings from './pages/Settings';
 import AuditLogs from './pages/AuditLogs';
+import LandingPage from './pages/LandingPage';
 import Layout from './components/layout/Layout';
 
 // Placeholder pages for routes not yet implemented
@@ -29,11 +30,12 @@ const ProtectedRoute = () => {
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
       
       <Route element={<ProtectedRoute />}>
         <Route element={<Layout />}>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/map" element={<LiveMap />} />
           <Route path="/users" element={<Users />} />
           <Route path="/history" element={<RideHistory />} />
