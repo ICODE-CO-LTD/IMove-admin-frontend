@@ -17,6 +17,16 @@ export const adminService = {
     return response.data;
   },
 
+  createUser: async (userData) => {
+    const response = await api.post('/admin/users', userData);
+    return response.data;
+  },
+
+  deleteUser: async (userId) => {
+    const response = await api.delete(`/admin/users/${userId}`);
+    return response.data;
+  },
+
   // Ride Management
   getRides: async (params) => {
     const response = await api.get('/admin/rides', { params });
