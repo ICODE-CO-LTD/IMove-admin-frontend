@@ -66,5 +66,58 @@
     "initialPassword": "Initial Password",
     "passwordNote": "User can change this later.",
     "createUser": "Create User"
+  },
+  "landing": {
+    "nav": {
+      "features": "Features",
+      "security": "Security",
+      "signIn": "Sign In"
+    },
+    "hero": {
+      "badge": "Powering the future of mobility",
+      "title": "iMove Admin Control Center",
+      "subtitle": "Monitor rides, manage users, track payments, and control operations in real time. Built for operational clarity and scale.",
+      "ctaLogin": "Sign in to Admin Portal",
+      "ctaSystem": "System Overview"
+    },
+    "features": {
+      "title": "Core Capabilities",
+      "subtitle": "Comprehensive tools designed to manage every aspect of the ride-hailing experience.",
+      "liveMap": "Live Ride Monitoring",
+      "liveMapDesc": "Real-time tracking of riders and passengers on the map with sub-second latency.",
+      "users": "User Management",
+      "usersDesc": "Control rider and passenger accounts, handle verification, and manage status instantly.",
+      "payments": "Payment Oversight",
+      "paymentsDesc": "Monitor MTN MoMo & Airtel Money transactions with integrated reconciliation tools.",
+      "analytics": "Analytics & Reports",
+      "analyticsDesc": "Deep-dive ride history, revenue insights, and automated report exports.",
+      "config": "System Configuration",
+      "configDesc": "Fine-tune fare rules, zones, and service availability at a moment's notice.",
+      "audit": "Audit & Logs",
+      "auditDesc": "Track system activities and significant events with complete transparency."
+    },
+    "security": {
+      "title": "Security & Integrity by Design",
+      "rbac": "Role-Based Access Control",
+      "rbacDesc": "Granular permissions for different administrative levels.",
+      "encryption": "Encrypted Authentication",
+      "encryptionDesc": "Industry-standard JWT encryption for all active sessions.",
+      "pipelines": "Secure Data Pipelines",
+      "pipelinesDesc": "Encrypted communication between mobile app, web app, and DB.",
+      "audit": "Comprehensive Audit Trail",
+      "auditDesc": "Every action is logged and searchable for accountability.",
+      "zeroTrust": "Zero-Trust Architecture",
+      "zeroTrustDesc": "All operations are authenticated and authorized under our security-first protocol."
+    },
+    "cta": {
+      "title": "Access iMove Admin Portal",
+      "subtitle": "Enter our secure environment to manage operations and ensure the highest quality of service.",
+      "button": "Go to Login",
+      "authOnly": "Authorized personnel only"
+    },
+    "footer": {
+      "production": "Production Environment",
+      "support": "Support"
+    }
   }
 }

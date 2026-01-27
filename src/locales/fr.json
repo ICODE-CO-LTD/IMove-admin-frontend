@@ -66,5 +66,58 @@
     "initialPassword": "Mot de passe initial",
     "passwordNote": "L'utilisateur pourra le changer plus tard.",
     "createUser": "Créer Utilisateur"
+  },
+  "landing": {
+    "nav": {
+      "features": "Fonctionnalités",
+      "security": "Sécurité",
+      "signIn": "Connexion"
+    },
+    "hero": {
+      "badge": "Propulser l'avenir de la mobilité",
+      "title": "Centre de Contrôle iMove",
+      "subtitle": "Surveillez les trajets, gérez les utilisateurs, suivez les paiements et contrôlez les opérations en temps réel. Conçu pour la clarté opérationnelle.",
+      "ctaLogin": "Connexion Portail Admin",
+      "ctaSystem": "Aperçu du Système"
+    },
+    "features": {
+      "title": "Capacités Principales",
+      "subtitle": "Outils complets conçus pour gérer chaque aspect de l'expérience de transport.",
+      "liveMap": "Suivi des Trajets en Direct",
+      "liveMapDesc": "Suivi en temps réel des conducteurs et des passagers sur la carte avec une latence inférieure à la seconde.",
+      "users": "Gestion des Utilisateurs",
+      "usersDesc": "Contrôlez les comptes conducteurs et passagers, gérez les vérifications et les statuts instantanément.",
+      "payments": "Suivi des Paiements",
+      "paymentsDesc": "Surveillez les transactions MTN MoMo & Airtel Money avec des outils de rapprochement intégrés.",
+      "analytics": "Analyses & Rapports",
+      "analyticsDesc": "Plongez dans l'historique des trajets, les revenus et les rapports automatisés.",
+      "config": "Configuration du Système",
+      "configDesc": "Ajustez les règles tarifaires, les zones et la disponibilité du service à tout moment.",
+      "audit": "Audits & Journaux",
+      "auditDesc": "Suivez les activités du système et les événements significatifs en toute transparence."
+    },
+    "security": {
+      "title": "Sécurité & Intégrité par Conception",
+      "rbac": "Contrôle d'Accès Basé sur les Rôles",
+      "rbacDesc": "Permissions granulaires pour différents niveaux administratifs.",
+      "encryption": "Authentification Chiffrée",
+      "encryptionDesc": "Chiffrement JWT standard pour toutes les sessions actives.",
+      "pipelines": "Pipelines de Données Sécurisés",
+      "pipelinesDesc": "Communication chiffrée entre l'application mobile, web et la base de données.",
+      "audit": "Piste d'Audit Complète",
+      "auditDesc": "Chaque action est enregistrée et consultable pour la responsabilité.",
+      "zeroTrust": "Architecture Zéro Confiance",
+      "zeroTrustDesc": "Toutes les opérations sont authentifiées et autorisées selon notre protocole de sécurité d'abord."
+    },
+    "cta": {
+      "title": "Accéder au Portail Admin iMove",
+      "subtitle": "Entrez dans notre environnement sécurisé pour gérer les opérations et assurer la meilleure qualité de service.",
+      "button": "Aller à la Connexion",
+      "authOnly": "Personnel autorisé uniquement"
+    },
+    "footer": {
+      "production": "Environnement de Production",
+      "support": "Support"
+    }
   }
 }

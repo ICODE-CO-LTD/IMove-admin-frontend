@@ -66,5 +66,58 @@
     "initialPassword": "Nenosiri la Awali",
     "passwordNote": "Mtumiaji anaweza kubadilisha hii baadaye.",
     "createUser": "Unda Mtumiaji"
+  },
+  "landing": {
+    "nav": {
+      "features": "Vipengele",
+      "security": "Usalama",
+      "signIn": "Ingia"
+    },
+    "hero": {
+      "badge": "Kuwezesha mustakabali wa usafiri",
+      "title": "Kituo cha Udhibiti wa iMove",
+      "subtitle": "Fuatilia safari, dhibiti watumiaji, fuatilia malipo, na dhibiti shughuli papo hapo. Imejengwa kwa ajili ya uwazi na ukuaji.",
+      "ctaLogin": "Ingia kwenye Portal ya Admin",
+      "ctaSystem": "Muhtasari wa Mfumo"
+    },
+    "features": {
+      "title": "Uwezo wa Msingi",
+      "subtitle": "Zana kamili zilizoundwa kudhibiti kila nyanja ya uzoefu wa safari.",
+      "liveMap": "Ufuatiliaji wa Safari Moja kwa Moja",
+      "liveMapDesc": "Fuatilia madereva na abiria kwenye ramani kwa wakati halisi.",
+      "users": "Usimamizi wa Watumiaji",
+      "usersDesc": "Dhibiti akaunti za madereva na abiria, shughulikia uhakiki, na dhibiti hali papo hapo.",
+      "payments": "Usimamizi wa Malipo",
+      "paymentsDesc": "Fuatilia miamala ya MTN MoMo & Airtel Money na zana za upatanisho.",
+      "analytics": "Takwimu & Ripoti",
+      "analyticsDesc": "Chunguza historia ya safari, mapato, na ripoti za kiotomatiki.",
+      "config": "Mipangilio ya Mfumo",
+      "configDesc": "Rekebisha sheria za nauli, kanda, na upatikanaji wa huduma wakati wowote.",
+      "audit": "Ukaguzi & Kumbukumbu",
+      "auditDesc": "Fuatilia shughuli za mfumo na matukio muhimu kwa uwazi kamili."
+    },
+    "security": {
+      "title": "Usalama & Uadilifu",
+      "rbac": "Udhibiti wa Ufikiaji kulingana na Majukumu",
+      "rbacDesc": "Ruhusa maalum kwa viwango tofauti vya utawala.",
+      "encryption": "Uthibitishaji Uliofichwa",
+      "encryptionDesc": "Usimbaji fiche wa JWT wa kiwango cha tasnia kwa vikao vyote vinavyoendelea.",
+      "pipelines": "Mabomba ya Data Salama",
+      "pipelinesDesc": "Mawasiliano yaliyofichwa kati ya programu ya simu, wavuti, na hifadhidata.",
+      "audit": "Njia Kamili ya Ukaguzi",
+      "auditDesc": "Kila hatua inarekodiwa na inaweza kutafutwa kwa uwajibikaji.",
+      "zeroTrust": "Usanifu wa Kutokuamini",
+      "zeroTrustDesc": "Shughuli zote zinathibitishwa na kuidhinishwa chini ya itifaki yetu ya usalama kwanza."
+    },
+    "cta": {
+      "title": "Fikia Portal ya Admin ya iMove",
+      "subtitle": "Ingia katika mazingira yetu salama ili kudhibiti shughuli na kuhakikisha huduma bora zaidi.",
+      "button": "Nenda Kwenye Ukurasa wa Kuingia",
+      "authOnly": "Wafanyakazi walioidhinishwa tu"
+    },
+    "footer": {
+      "production": "Mazingira ya Uzalishaji",
+      "support": "Msaada"
+    }
   }
 }

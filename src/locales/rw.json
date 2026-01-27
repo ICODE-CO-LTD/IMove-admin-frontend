@@ -66,5 +66,58 @@
     "initialPassword": "Ijambo ry'ibanga ry'ibanze",
     "passwordNote": "Umukoresha azashobora kurihindura hanyuma.",
     "createUser": "Kora Umukoresha"
+  },
+  "landing": {
+    "nav": {
+      "features": "Iby'ingenzi",
+      "security": "Umutekano",
+      "signIn": "Injira"
+    },
+    "hero": {
+      "badge": "Imbaraga z'ejo hazaza mu ngendo",
+      "title": "Ikigo Gicunga iMove",
+      "subtitle": "Kurikirana ingendo, cunga abakoresha, umenye uko amafaranga yishyurwa, kandi ugenzure ibikorwa byose. Byakorewe koroshya akazi.",
+      "ctaLogin": "Injira muri Portal",
+      "ctaSystem": "Incamake ya Sisitemu"
+    },
+    "features": {
+      "title": "Ubushobozi bw'Ibanze",
+      "subtitle": "Ibikoresho byuzuye byagenewe gucunga buri kintu cyose kijyanye n'ingendo.",
+      "liveMap": "Gukurikirana Ingendo",
+      "liveMapDesc": "Kureba aho abagenzi n'abamotari baherereye ku ikarita ako kanya.",
+      "users": "Gucunga Abakoresha",
+      "usersDesc": "Genzura konti z'abamotari n'abagenzi,emeza imyirondoro, kandi uhindure imiterere yabo.",
+      "payments": "Gukurikirana Kwishyura",
+      "paymentsDesc": "Reba ihererekanya rya MTN MoMo & Airtel Money hamwe n'ibikoresho byo kubihuza.",
+      "analytics": "Isesengura na Raporo",
+      "analyticsDesc": "Sesengura amateka y'ingendo, kwinjiza amafaranga, no kubona raporo zikora.",
+      "config": "Igenamiterere rya Sisitemu",
+      "configDesc": "Hindura ibiciro, uturere, n'ahari serivisi igihe icyo aricyo cyose.",
+      "audit": "Ubugenzuzi na Raporo",
+      "auditDesc": "Kurikirana ibikorwa bya sisitemu n'ibintu byabaye mu mucyo."
+    },
+    "security": {
+      "title": "Umutekano & Ubunyangamugayo",
+      "rbac": "Kugenzura Uburenganzira",
+      "rbacDesc": "Uburenganzira bwihariye kuri buri rwego rw'imiyoborere.",
+      "encryption": "Kurinda Amakuru",
+      "encryptionDesc": "Uburinzi bwa JWT bugezweho kubari gukoresha sisitemu bose.",
+      "pipelines": "Uruhererekane Rwizewe",
+      "pipelinesDesc": "Itumanaho ririnzwe hagati ya porogaramu ya telefoni, urubuga, na base y'amakuru.",
+      "audit": "Inzira y'Ubugenzuzi Yuzuye",
+      "auditDesc": "Buri gikorwa kirandikwa kandi gishobora gushakishwa kugirango haboneke uburyozwe.",
+      "zeroTrust": "Imyubakire Itagira Icyizere",
+      "zeroTrustDesc": "Ibikorwa byose bisaba kwemeza umwirondoro n'uburenganzira mbere yo gukora."
+    },
+    "cta": {
+      "title": "Injira muri iMove Admin Portal",
+      "subtitle": "Injira mu bidukikije bizewe kugirango ucunge ibikorwa kandi wizere serivisi nziza.",
+      "button": "Jya Kwinjira",
+      "authOnly": "Abakozi bemewe gusa"
+    },
+    "footer": {
+      "production": "Ibidukikije by'Umusaruro",
+      "support": "Ubufasha"
+    }
   }
 }
