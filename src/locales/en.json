@@ -1,0 +1,70 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "actions": "Actions",
+    "search": "Search...",
+    "filter": "Filter",
+    "status": "Status",
+    "role": "Role",
+    "date": "Date",
+    "confirmDelete": "Are you sure you want to delete this?",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "auth": {
+    "loginTitle": "Admin Access",
+    "loginSubtitle": "Enter your credentials to access the dashboard",
+    "email": "Email Address",
+    "password": "Password",
+    "signIn": "Sign In",
+    "signingIn": "Signing in...",
+    "welcomeBack": "Welcome back",
+    "loginFailed": "Login failed"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "users": "User Management",
+    "rides": "Ride History",
+    "liveMap": "Live Map",
+    "payments": "Payments",
+    "settings": "Settings",
+    "auditLogs": "Audit Logs",
+    "logout": "Logout"
+  },
+  "dashboard": {
+    "title": "Dashboard Overview",
+    "totalUsers": "Total Users",
+    "activeRides": "Active Rides",
+    "revenue": "Revenue (Total)",
+    "activeRiders": "Active Riders",
+    "riders": "Riders",
+    "onlineNow": "Online now",
+    "chartRevenue": "Revenue Overview",
+    "chartRides": "Ride Activity"
+  },
+  "users": {
+    "title": "User Management",
+    "addUser": "Add User",
+    "allRoles": "All Roles",
+    "passenger": "Passenger",
+    "rider": "Rider",
+    "admin": "Admin",
+    "joined": "Joined",
+    "verification": "Verification",
+    "suspended": "Suspended",
+    "active": "Active",
+    "approved": "Approved",
+    "pending": "Pending",
+    "rejected": "Rejected",
+    "modalTitle": "Add New User",
+    "fullName": "Full Name",
+    "phone": "Phone",
+    "initialPassword": "Initial Password",
+    "passwordNote": "User can change this later.",
+    "createUser": "Create User"
+  }
+}

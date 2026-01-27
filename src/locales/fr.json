@@ -1,0 +1,70 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "actions": "Actions",
+    "search": "Rechercher...",
+    "filter": "Filtrer",
+    "status": "Statut",
+    "role": "Rôle",
+    "date": "Date",
+    "confirmDelete": "Êtes-vous sûr de vouloir supprimer ceci ?",
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "auth": {
+    "loginTitle": "Accès Administrateur",
+    "loginSubtitle": "Entrez vos identifiants pour accéder",
+    "email": "Adresse E-mail",
+    "password": "Mot de passe",
+    "signIn": "Se connecter",
+    "signingIn": "Connexion...",
+    "welcomeBack": "Bon retour",
+    "loginFailed": "Échec de la connexion"
+  },
+  "sidebar": {
+    "dashboard": "Tableau de Bord",
+    "users": "Utilisateurs",
+    "rides": "Trajets",
+    "liveMap": "Carte en Direct",
+    "payments": "Paiements",
+    "settings": "Paramètres",
+    "auditLogs": "Journaux",
+    "logout": "Déconnexion"
+  },
+  "dashboard": {
+    "title": "Vue d'ensemble",
+    "totalUsers": "Total Utilisateurs",
+    "activeRides": "Trajets Actifs",
+    "revenue": "Revenus (Total)",
+    "activeRiders": "Conducteurs Actifs",
+    "riders": "Conducteurs",
+    "onlineNow": "En ligne maintenant",
+    "chartRevenue": "Aperçu des Revenus",
+    "chartRides": "Activité des Trajets"
+  },
+  "users": {
+    "title": "Gestion des Utilisateurs",
+    "addUser": "Ajouter un Utilisateur",
+    "allRoles": "Tous les Rôles",
+    "passenger": "Passager",
+    "rider": "Conducteur",
+    "admin": "Administrateur",
+    "joined": "Rejoint",
+    "verification": "Vérification",
+    "suspended": "Suspendu",
+    "active": "Actif",
+    "approved": "Approuvé",
+    "pending": "En attente",
+    "rejected": "Rejeté",
+    "modalTitle": "Ajouter un Nouvel Utilisateur",
+    "fullName": "Nom Complet",
+    "phone": "Téléphone",
+    "initialPassword": "Mot de passe initial",
+    "passwordNote": "L'utilisateur pourra le changer plus tard.",
+    "createUser": "Créer Utilisateur"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "common": {
+    "loading": "Inapakia...",
+    "save": "Hifadhi",
+    "cancel": "Ghairi",
+    "delete": "Futa",
+    "edit": "Hariri",
+    "actions": "Vitendo",
+    "search": "Tafuta...",
+    "filter": "Chuja",
+    "status": "Hali",
+    "role": "Majukumu",
+    "date": "Tarehe",
+    "confirmDelete": "Je, unahakika unataka kufuta hii?",
+    "yes": "Ndiyo",
+    "no": "Hapana"
+  },
+  "auth": {
+    "loginTitle": "Ufikiaji wa Utawala",
+    "loginSubtitle": "Weka taarifa zako ili kuingia",
+    "email": "Barua pepe",
+    "password": "Nenosiri",
+    "signIn": "Ingia",
+    "signingIn": "Inaingia...",
+    "welcomeBack": "Karibu tena",
+    "loginFailed": "Kuingia kumeshindikana"
+  },
+  "sidebar": {
+    "dashboard": "Dashibodi",
+    "users": "Watumiaji",
+    "rides": "Safari",
+    "liveMap": "Ramani Hai",
+    "payments": "Malipo",
+    "settings": "Mipangilio",
+    "auditLogs": "Kumbukumbu",
+    "logout": "Toka"
+  },
+  "dashboard": {
+    "title": "Muhtasari wa Dashibodi",
+    "totalUsers": "Jumla ya Watumiaji",
+    "activeRides": "Safari Zinazoendelea",
+    "revenue": "Mapato (Jumla)",
+    "activeRiders": "Madereva Walio Kazini",
+    "riders": "Madereva",
+    "onlineNow": "Wako mtandaoni sasa",
+    "chartRevenue": "Muhtasari wa Mapato",
+    "chartRides": "Shughuli za Safari"
+  },
+  "users": {
+    "title": "Usimamizi wa Watumiaji",
+    "addUser": "Ongeza Mtumiaji",
+    "allRoles": "Majukumu Yote",
+    "passenger": "Abiria",
+    "rider": "Dereva",
+    "admin": "Msimamizi",
+    "joined": "Amejiunga",
+    "verification": "Uhakiki",
+    "suspended": "Imesimamishwa",
+    "active": "Hai",
+    "approved": "Imeidhinishwa",
+    "pending": "Inasubiri",
+    "rejected": "Imekataliwa",
+    "modalTitle": "Ongeza Mtumiaji Mpya",
+    "fullName": "Jina Kamili",
+    "phone": "Simu",
+    "initialPassword": "Nenosiri la Awali",
+    "passwordNote": "Mtumiaji anaweza kubadilisha hii baadaye.",
+    "createUser": "Unda Mtumiaji"
+  }
+}

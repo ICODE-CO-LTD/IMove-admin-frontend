@@ -1,0 +1,70 @@
+{
+  "common": {
+    "loading": "Biratunganywa...",
+    "save": "Bika",
+    "cancel": "Kureka",
+    "delete": "Siba",
+    "edit": "Hindura",
+    "actions": "Ibikorwa",
+    "search": "Shakisha...",
+    "filter": "Muyunguruzi",
+    "status": "Imiterere",
+    "role": "Inshingano",
+    "date": "Itariki",
+    "confirmDelete": "Uremeza ko ushaka gusiba ibi?",
+    "yes": "Yego",
+    "no": "Oya"
+  },
+  "auth": {
+    "loginTitle": "Kwinjira nk'Ubuyobozi",
+    "loginSubtitle": "Andika umwirondoro wawe kugira ngo winjire",
+    "email": "Imeri",
+    "password": "Ijambo ry'ibanga",
+    "signIn": "Injira",
+    "signingIn": "Birimo kwinjira...",
+    "welcomeBack": "Murakaza neza",
+    "loginFailed": "Kwinjira byanze"
+  },
+  "sidebar": {
+    "dashboard": "Incamake",
+    "users": "Abakoresha",
+    "rides": "Ingendo",
+    "liveMap": "Ikarita",
+    "payments": "Kwishyura",
+    "settings": "Igenamiterere",
+    "auditLogs": "Raporo",
+    "logout": "Sohoka"
+  },
+  "dashboard": {
+    "title": "Incamake y'Imikorere",
+    "totalUsers": "Abakoresha Bose",
+    "activeRides": "Ingendo ziri kuba",
+    "revenue": "Amafaranga Yinjiye",
+    "activeRiders": "Abamotari Bari Mukazi",
+    "riders": "Abamotari",
+    "onlineNow": "Bari ku murongo",
+    "chartRevenue": "Incamake y'Amafaranga",
+    "chartRides": "Ubwitabire bw'Ingendo"
+  },
+  "users": {
+    "title": "Gucunga Abakoresha",
+    "addUser": "Ongeramo Umukoresha",
+    "allRoles": "Inshingano Zose",
+    "passenger": "Umugenzi",
+    "rider": "Umomotari",
+    "admin": "Umu administrayeri",
+    "joined": "Yiyandikishije",
+    "verification": "Gusuzuma",
+    "suspended": "Yahagaritswe",
+    "active": "Arakora",
+    "approved": "Yemejwe",
+    "pending": "Iritunganywa",
+    "rejected": "Yanzwe",
+    "modalTitle": "Ongeramo Umukoresha Mushya",
+    "fullName": "Amazina Yose",
+    "phone": "Telefoni",
+    "initialPassword": "Ijambo ry'ibanga ry'ibanze",
+    "passwordNote": "Umukoresha azashobora kurihindura hanyuma.",
+    "createUser": "Kora Umukoresha"
+  }
+}
