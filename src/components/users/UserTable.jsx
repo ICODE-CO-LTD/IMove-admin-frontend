@@ -1,15 +1,30 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { adminService } from '../../services/adminService';
-import { Loader2, Search, Filter, MoreVertical, Eye, Ban, CheckCircle } from 'lucide-react';
+import { Loader2, Search, Filter, MoreVertical, Eye, Ban, CheckCircle, Trash2, Plus } from 'lucide-react';
 import { format } from 'date-fns';
+import AddUserModal from './AddUserModal';
 
 export default function UserTable() {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
   const [role, setRole] = useState('');
   const [selectedUser, setSelectedUser] = useState(null); // For details modal later
+  const [isAddUserOpen, setIsAddUserOpen] = useState(false);
   const queryClient = useQueryClient();
+
+  const deleteMutation = useMutation({
+    mutationFn: adminService.deleteUser,
+    onSuccess: () => {
+      queryClient.invalidateQueries(['users']);
+    }
+  });
+
+  const handleDelete = (userId) => {
+    if (window.confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+      deleteMutation.mutate(userId);
+    }
+  };
 
   const { data, isLoading } = useQuery({
     queryKey: ['users', page, search, role],
@@ -38,6 +53,7 @@ export default function UserTable() {
   const { users, pagination } = data || {};
 
   return (
+    <>
     <div className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
       <div className="p-4 border-b border-slate-100 flex flex-col sm:flex-row gap-4 justify-between items-center">
         <div className="relative w-full sm:w-64">
@@ -63,6 +79,13 @@ export default function UserTable() {
             <option value="rider">Rider</option>
             <option value="admin">Admin</option>
           </select>
+          <button 
+            onClick={() => setIsAddUserOpen(true)}
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+          >
+            <Plus size={16} />
+            Add User
+          </button>
         </div>
       </div>
 
@@ -124,8 +147,12 @@ export default function UserTable() {
                   {format(new Date(user.createdAt), 'MMM d, yyyy')}
                 </td>
                 <td className="px-6 py-4 text-right">
-                  <button className="text-slate-400 hover:text-blue-600 p-2">
-                    <Eye className="w-4 h-4" />
+                  <button 
+                    onClick={() => handleDelete(user._id)}
+                    className="text-slate-400 hover:text-red-600 p-2 transition-colors"
+                    title="Delete User"
+                  >
+                    <Trash2 className="w-4 h-4" />
                   </button>
                 </td>
               </tr>
@@ -154,5 +181,7 @@ export default function UserTable() {
         </button>
       </div>
     </div>
+    <AddUserModal isOpen={isAddUserOpen} onClose={() => setIsAddUserOpen(false)} />
+    </>
   );
 }
