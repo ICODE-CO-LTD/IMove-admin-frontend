@@ -5,8 +5,10 @@ import { motion } from 'framer-motion';
 import { Loader2, Mail, Lock, Eye, EyeOff, ChevronLeft } from 'lucide-react';
 import ridersBg from '../assets/riders.png';
 import logo from '../assets/imove-logo-2.png';
+import { useTranslation } from 'react-i18next';
 
 export default function Login() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -26,7 +28,7 @@ export default function Login() {
       await login(email, password);
       navigate(from, { replace: true });
     } catch (err) {
-      setError('Invalid credentials. Please verify your email and password.');
+      setError(t('auth.loginFailed'));
       console.error(err);
     } finally {
       setLoading(false);
@@ -61,7 +63,7 @@ export default function Login() {
           <img src={logo} alt="iMove Logo" className="h-14 w-auto mb-2" />
           <h1 className="text-3xl font-extrabold text-blue-500 tracking-tight">IMove </h1>
           <p className="text-slate-400 mt-2 text-center text-sm">
-            Please sign in with your administrator credentials to manage the platform.
+            {t('auth.loginSubtitle')}
           </p>
         </div>
 
@@ -82,7 +84,7 @@ export default function Login() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Email Address</label>
+              <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">{t('auth.email')}</label>
               <div className="relative group/field ">
                 <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/field:text-blue-500 transition-colors">
                   <Mail size={18} />
@@ -99,7 +101,7 @@ export default function Login() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Password</label>
+              <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">{t('auth.password')}</label>
               <div className="relative group/field">
                 <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/field:text-blue-500 transition-colors">
                   <Lock size={18} />
@@ -130,10 +132,10 @@ export default function Login() {
               {loading ? (
                 <>
                   <Loader2 className="animate-spin" size={20} />
-                  <span>Authenticating...</span>
+                  <span>{t('auth.signingIn')}</span>
                 </>
               ) : (
-                'Sign In to Dashboard'
+                t('auth.signIn')
               )}
             </button>
           </form>
