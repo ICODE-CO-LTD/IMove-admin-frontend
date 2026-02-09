@@ -17,6 +17,7 @@ import logo from '../assets/imove-logo-2.png';
 import dashboardPreview from '../assets/dashboard-mockup.png';
 import heroImage from '../assets/heroImage.png';
 import { useTranslation } from 'react-i18next';
+import Silk from '../components/animations/Silk';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -86,6 +87,17 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="pt-40 pb-20 px-6 relative overflow-hidden">
+        {/* Silk Animated Background */}
+        <div className="absolute inset-0 -z-10">
+          <Silk
+            speed={5}
+            scale={1.2}
+            color="#353897"
+            noiseIntensity={1.5}
+            rotation={3.5}
+          />
+        </div>
+        
         {/* Abstract Background Blur */}
         <div className="absolute top-0 left-1/4 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/5 blur-[120px] rounded-full -z-10" />
         
