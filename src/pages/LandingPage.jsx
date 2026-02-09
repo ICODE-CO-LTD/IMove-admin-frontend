@@ -51,11 +51,11 @@ export default function LandingPage() {
       <div className="fixed inset-0 -z-10 pointer-events-none bg-[#0f172a]">
         <Silk
           speed={3}
-          scale={1}
-          color="#5B4FE8"
-          noiseIntensity={0.8}
+          scale={0.8}
+          color="#0a1b4c97"
+          noiseIntensity={0.5}
           rotation={0}
-          opacity={0.4}
+          opacity={0.2}
         />
       </div>
       {/* Navigation */}
