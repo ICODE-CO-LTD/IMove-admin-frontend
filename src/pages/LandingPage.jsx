@@ -88,13 +88,13 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="pt-40 pb-20 px-6 relative overflow-hidden">
         {/* Silk Animated Background */}
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 -z-10" style={{ width: '100%', height: '100%' }}>
           <Silk
-            speed={5}
-            scale={1}
-            color="#353897"
-            noiseIntensity={1.5}
-            rotation={0}
+            speed={3}
+            scale={2.5}
+            color="#5B4FE8"
+            noiseIntensity={0.8}
+            rotation={0.5}
           />
         </div>
         
