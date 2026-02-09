@@ -92,7 +92,7 @@ const SilkPlane = forwardRef(function SilkPlane({ uniforms }, ref) {
 });
 SilkPlane.displayName = 'SilkPlane';
 
-const Silk = ({ speed = 5, scale = 1, color = '#7B7481', noiseIntensity = 1.5, rotation = 0 }) => {
+const Silk = ({ speed = 5, scale = 1, color = '#7B7481', noiseIntensity = 1.5, rotation = 0, opacity = 1.0 }) => {
   const meshRef = useRef();
 
   const uniforms = useMemo(
@@ -102,9 +102,10 @@ const Silk = ({ speed = 5, scale = 1, color = '#7B7481', noiseIntensity = 1.5, r
       uNoiseIntensity: { value: noiseIntensity },
       uColor: { value: new Color(...hexToNormalizedRGB(color)) },
       uRotation: { value: rotation },
+      uOpacity: { value: opacity },
       uTime: { value: 0 }
     }),
-    [speed, scale, noiseIntensity, color, rotation]
+    [speed, scale, noiseIntensity, color, rotation, opacity]
   );
 
   return (

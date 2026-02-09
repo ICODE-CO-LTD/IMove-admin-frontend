@@ -55,6 +55,7 @@ export default function LandingPage() {
           color="#5B4FE8"
           noiseIntensity={0.8}
           rotation={0}
+          opacity={0.4}
         />
       </div>
       {/* Navigation */}
