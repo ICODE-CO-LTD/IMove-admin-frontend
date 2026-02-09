@@ -91,10 +91,10 @@ export default function LandingPage() {
         <div className="absolute inset-0 -z-10">
           <Silk
             speed={5}
-            scale={1.2}
+            scale={1}
             color="#353897"
             noiseIntensity={1.5}
-            rotation={3.5}
+            rotation={0}
           />
         </div>
         
