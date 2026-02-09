@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import logo from '../assets/imove-logo-2.png';
 import dashboardPreview from '../assets/dashboard-mockup.png';
-import heroImage from '../assets/heroImage.png';
+import heroImage from '../assets/heroimage2-3copy.png';
 import { useTranslation } from 'react-i18next';
 import Silk from '../components/animations/Silk';
 
@@ -50,10 +50,10 @@ export default function LandingPage() {
       {/* Universal Silk Background */}
       <div className="fixed inset-0 -z-10 pointer-events-none bg-[#0f172a]">
         <Silk
-          speed={3}
-          scale={0.8}
+          speed={4}
+          scale={0.9}
           color="#0a1b4c97"
-          noiseIntensity={0.5}
+          noiseIntensity={2.5}
           rotation={0}
           opacity={0.2}
         />
@@ -152,16 +152,16 @@ export default function LandingPage() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.9, x: 30 }}
+            animate={{ opacity: 1, scale: 2, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="relative hidden lg:block"
+            className="relative hidden lg:block lg:ml-14"
           >
             <div className="absolute inset-0 bg-blue-600/10 blur-[100px] rounded-full -z-10" />
             <img 
               src={heroImage} 
               alt="iMove Platform" 
-              className="w-full h-auto rounded-[2rem] shadow-2xl border border-white/5 rotate-2 hover:rotate-0 transition-all duration-700"
+              className="w-full h-auto rounded-[2rem] rotate-2 hover:rotate-0 transition-all duration-700"
             />
           </motion.div>
         </div>
