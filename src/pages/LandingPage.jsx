@@ -46,7 +46,17 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0f172a] text-slate-200 selection:bg-blue-500/30 font-sans overflow-x-hidden">
+    <div className="min-h-screen text-slate-200 selection:bg-blue-500/30 font-sans overflow-x-hidden relative">
+      {/* Universal Silk Background */}
+      <div className="fixed inset-0 -z-10 pointer-events-none bg-[#0f172a]">
+        <Silk
+          speed={3}
+          scale={1}
+          color="#5B4FE8"
+          noiseIntensity={0.8}
+          rotation={0}
+        />
+      </div>
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -87,17 +97,6 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="pt-40 pb-20 px-6 relative overflow-hidden">
-        {/* Silk Animated Background */}
-        <div className="absolute inset-0 -z-10" style={{ width: '100%', height: '100%' }}>
-          <Silk
-            speed={3}
-            scale={2.5}
-            color="#5B4FE8"
-            noiseIntensity={0.8}
-            rotation={0.5}
-          />
-        </div>
-        
         {/* Abstract Background Blur */}
         <div className="absolute top-0 left-1/4 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/5 blur-[120px] rounded-full -z-10" />
         

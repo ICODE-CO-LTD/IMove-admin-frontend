@@ -72,20 +72,21 @@ void main() {
 const SilkPlane = forwardRef(function SilkPlane({ uniforms }, ref) {
   const { viewport } = useThree();
 
-  useLayoutEffect(() => {
-    if (ref.current) {
-      ref.current.scale.set(viewport.width, viewport.height, 1);
+  useFrame((state, delta) => {
+    if (ref.current && ref.current.material) {
+      ref.current.material.uniforms.uTime.value += 0.1 * delta;
     }
-  }, [ref, viewport]);
-
-  useFrame((_, delta) => {
-    ref.current.material.uniforms.uTime.value += 0.1 * delta;
   });
 
   return (
-    <mesh ref={ref}>
-      <planeGeometry args={[1, 1, 1, 1]} />
-      <shaderMaterial uniforms={uniforms} vertexShader={vertexShader} fragmentShader={fragmentShader} />
+    <mesh ref={ref} scale={[viewport.width, viewport.height, 1]}>
+      <planeGeometry args={[1, 1]} />
+      <shaderMaterial 
+        key={JSON.stringify(uniforms.uColor.value)} // Force refresh if color changes significantly
+        uniforms={uniforms} 
+        vertexShader={vertexShader} 
+        fragmentShader={fragmentShader} 
+      />
     </mesh>
   );
 });
