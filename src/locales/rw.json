@@ -35,6 +35,7 @@
     "auditLogs": "Raporo",
     "logout": "Sohoka"
   },
+
   "dashboard": {
     "title": "Incamake y'Imikorere",
     "totalUsers": "Abakoresha Bose",
@@ -45,6 +46,13 @@
     "onlineNow": "Bari ku murongo",
     "chartRevenue": "Incamake y'Amafaranga",
     "chartRides": "Ubwitabire bw'Ingendo"
+  },
+  "liveMap": {
+    "title": "Gukurikirana Ingendo Ziri Kuba",
+    "description": "Reba aho abamotari n'ingendo biri mu gihe nyacyo",
+    "availableRiders": "Abamotari Baboneka",
+    "activeRides": "Ingendo Ziri Kuba",
+    "ongoingRide": "Urugendo Ruri Kuba"
   },
   "users": {
     "title": "Gucunga Abakoresha",

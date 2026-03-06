@@ -119,5 +119,12 @@
       "production": "Production Environment",
       "support": "Support"
     }
+    },
+    "liveMap": {
+      "title": "Live Ride Monitoring",
+      "description": "Real-time view of riders and ongoing trips",
+      "availableRiders": "Available Riders",
+      "activeRides": "Active Rides",
+      "ongoingRide": "Ongoing Ride"
+    }
   }
-}

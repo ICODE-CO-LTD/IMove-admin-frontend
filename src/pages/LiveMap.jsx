@@ -3,6 +3,7 @@ import { useLoadScript, GoogleMap, Marker, InfoWindow, Polyline } from '@react-g
 import { useQuery } from '@tanstack/react-query';
 import { adminService } from '../services/adminService';
 import { Loader2, Car, Navigation } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const containerStyle = {
   width: '100%',
@@ -22,6 +23,7 @@ const options = {
 };
 
 export default function LiveMap() {
+  const { t, i18n } = useTranslation();
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "", 
     // libraries: ['places'] // if needed
@@ -105,7 +107,7 @@ export default function LiveMap() {
           >
             <div className="p-2 min-w-[200px]">
               <p className="font-bold text-gray-900">
-                {selectedItem.type === 'rider' ? selectedItem.data.full_name : 'Ongoing Ride'}
+                {selectedItem.type === 'rider' ? selectedItem.data.full_name : t('Ongoing Ride')}
               </p>
               {selectedItem.type === 'rider' && (
                  <div className="text-sm text-gray-600 mt-1">
@@ -124,23 +126,23 @@ export default function LiveMap() {
         )}
       </GoogleMap>
     );
-  }, [isLoaded, loadError, riders, activeRides, selectedItem]);
+  }, [isLoaded, loadError, riders, activeRides, selectedItem, i18n.language]);
 
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <div>
-           <h2 className="text-2xl font-bold text-slate-800">Live Ride Monitoring</h2>
-           <p className="text-slate-500">Real-time view of riders and ongoing trips</p>
+           <h2 className="text-2xl font-bold text-slate-800">{t('liveMap.title')}</h2>
+           <p className="text-slate-500">{t('liveMap.description')}</p>
         </div>
          <div className="flex gap-4 text-sm">
              <div className="flex items-center gap-2">
                  <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                 <span className="text-slate-600">Available Riders</span>
+                 <span className="text-slate-600">{t('liveMap.availableRiders')}</span>
              </div>
              <div className="flex items-center gap-2">
                  <div className="w-3 h-3 rounded-full bg-purple-500"></div>
-                 <span className="text-slate-600">Active Rides</span>
+                 <span className="text-slate-600">{t('liveMap.activeRides')}</span>
              </div>
          </div>
       </div>
