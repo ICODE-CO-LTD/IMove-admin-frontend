@@ -13,7 +13,12 @@
     "date": "Date",
     "confirmDelete": "Are you sure you want to delete this?",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "name": "Name",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page",
+    "of": "of"
   },
   "auth": {
     "loginTitle": "Admin Access",
@@ -65,7 +70,70 @@
     "phone": "Phone",
     "initialPassword": "Initial Password",
     "passwordNote": "User can change this later.",
-    "createUser": "Create User"
+    "createUser": "Create User",
+    "name": "Name"
+  },
+  "payments": {
+    "title": "Payment Monitoring",
+    "subtitle": "Track all transactions, revenue, and payment statuses",
+    "reconcile": "Reconcile",
+    "exportReport": "Export Report",
+    "refId": "Ref ID",
+    "user": "User",
+    "ride": "Ride",
+    "method": "Method",
+    "amount": "Amount",
+    "date": "Date",
+    "searchPlaceholder": "Search transaction ref...",
+    "allStatuses": "All Statuses",
+    "allProviders": "All Providers",
+    "successful": "Successful",
+    "pending": "Pending",
+    "failed": "Failed",
+    "mtn": "MTN MoMo",
+    "airtel": "Airtel Money",
+    "stripe": "Stripe",
+    "flutterwave": "Flutterwave"
+  },
+  "rides": {
+    "title": "Ride History",
+    "subtitle": "View and manage all past and current rides",
+    "exportReport": "Export Report",
+    "rideId": "Ride ID",
+    "passengerRider": "Passenger & Rider",
+    "route": "Route",
+    "fare": "Fare",
+    "searchPlaceholder": "Search rider or passenger...",
+    "allStatuses": "All Statuses",
+    "pending": "Pending",
+    "accepted": "Accepted",
+    "inProgress": "In Progress",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
+  },
+  "settings": {
+    "title": "System Settings",
+    "subtitle": "Configure pricing, fees, and system parameters",
+    "baseFare": "Base Fare",
+    "baseFareHelp": "Starting price for every ride",
+    "perKmRate": "Price per KM",
+    "perKmRateHelp": "Charge per kilometer distance",
+    "serviceFeePercent": "Service Fee (%)",
+    "serviceFeePercentHelp": "Percentage taken by platform",
+    "cancellationFee": "Cancellation Fee",
+    "cancellationFeeHelp": "Fee for cancelling after acceptance",
+    "saveChanges": "Save Changes",
+    "updateSuccess": "Settings updated successfully!",
+    "updateError": "Failed to update settings"
+  },
+  "auditLogs": {
+    "title": "Audit Logs",
+    "subtitle": "Monitor system activities and security events",
+    "allTypes": "All Types",
+    "system": "System",
+    "alert": "Alert",
+    "noLogsFound": "No logs found.",
+    "targetUser": "Target User"
   },
   "landing": {
     "nav": {
@@ -119,12 +187,21 @@
       "production": "Production Environment",
       "support": "Support"
     }
-    },
-    "liveMap": {
-      "title": "Live Ride Monitoring",
-      "description": "Real-time view of riders and ongoing trips",
-      "availableRiders": "Available Riders",
-      "activeRides": "Active Rides",
-      "ongoingRide": "Ongoing Ride"
+  },
+  "liveMap": {
+    "title": "Live Ride Monitoring",
+    "description": "Real-time view of riders and ongoing trips",
+    "availableRiders": "Available Riders",
+    "activeRides": "Active Rides",
+    "ongoingRide": "Ongoing Ride"
+  },
+  "app": {
+    "brand": "IMove Admin",
+    "languages": {
+      "rw": "Kinyarwanda (RW)",
+      "en": "English (EN)",
+      "sw": "Kiswahili (SW)",
+      "fr": "Français (FR)"
     }
   }
+}

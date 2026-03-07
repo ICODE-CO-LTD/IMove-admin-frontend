@@ -3,8 +3,10 @@ import { useQuery } from '@tanstack/react-query';
 import { adminService } from '../services/adminService';
 import { Loader2, FileText, Bell, AlertTriangle, Shield } from 'lucide-react';
 import { format } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 export default function AuditLogs() {
+  const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [type, setType] = useState('');
 
@@ -36,8 +38,8 @@ export default function AuditLogs() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-2xl font-bold text-slate-800">Audit Logs</h2>
-          <p className="text-slate-500 mt-1">System activities and important alerts</p>
+          <h2 className="text-2xl font-bold text-slate-800">{t('auditLogs.title')}</h2>
+          <p className="text-slate-500 mt-1">{t('auditLogs.subtitle')}</p>
         </div>
         <div>
             <select 
@@ -45,9 +47,9 @@ export default function AuditLogs() {
                 value={type}
                 onChange={(e) => { setType(e.target.value); setPage(1); }}
             >
-                <option value="">All Types</option>
-                <option value="system">System</option>
-                <option value="alert">Alerts</option>
+                <option value="">{t('auditLogs.allTypes')}</option>
+                <option value="system">{t('auditLogs.system')}</option>
+                <option value="alert">{t('auditLogs.alert')}</option>
             </select>
         </div>
       </div>
@@ -69,7 +71,7 @@ export default function AuditLogs() {
                 <p className="text-sm text-slate-600 mt-1">{log.message}</p>
                 {log.user_id && (
                      <p className="text-xs text-slate-400 mt-2">
-                        Target User: {log.user_id.full_name || 'Associated User'}
+                        {t('auditLogs.targetUser')}: {log.user_id.full_name || 'Associated User'}
                      </p>
                 )}
                  {log.data && Object.keys(log.data).length > 0 && (
@@ -83,7 +85,7 @@ export default function AuditLogs() {
 
           {logs?.length === 0 && (
               <div className="p-8 text-center text-slate-500">
-                  No logs found.
+                  {t('auditLogs.noLogsFound')}
               </div>
           )}
         </div>
@@ -94,17 +96,17 @@ export default function AuditLogs() {
             onClick={() => setPage(p => p - 1)}
             className="px-3 py-1 border border-slate-200 rounded-md text-sm disabled:opacity-50 hover:bg-white"
             >
-            Previous
+            {t('common.previous')}
             </button>
             <span className="text-sm text-slate-500">
-            Page {pagination?.page} of {pagination?.pages}
+            {t('common.page')} {pagination?.page} {t('common.of')} {pagination?.pages}
             </span>
             <button
             disabled={page >= (pagination?.pages || 1)}
             onClick={() => setPage(p => p + 1)}
             className="px-3 py-1 border border-slate-200 rounded-md text-sm disabled:opacity-50 hover:bg-white"
             >
-            Next
+            {t('common.next')}
             </button>
         </div>
       </div>

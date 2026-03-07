@@ -3,10 +3,24 @@ import { LayoutDashboard, Users, Map, Clock, CreditCard, Settings, FileText, Log
 import { useAuth } from '../../context/AuthContext';
 import { cn } from '../../lib/utils';
 import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
 
 export default function Sidebar() {
   const { logout } = useAuth();
   const { t, i18n } = useTranslation();
+  const [currentLang, setCurrentLang] = useState(i18n.language);
+
+  useEffect(() => {
+    const handleLanguageChange = (lng) => {
+      setCurrentLang(lng);
+    };
+
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
 
   const navItems = [
     { icon: LayoutDashboard, label: t('sidebar.dashboard'), path: '/dashboard' },
@@ -20,13 +34,14 @@ export default function Sidebar() {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    setCurrentLang(lng);
   };
 
   return (
     <aside className="w-64 bg-slate-900 text-white h-screen flex flex-col fixed left-0 top-0 overflow-y-auto">
       <div className="p-6">
         <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-          IMove Admin
+          {t('app.brand')}
         </h1>
       </div>
 
@@ -38,8 +53,8 @@ export default function Sidebar() {
             className={({ isActive }) =>
               cn(
                 "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors",
-                isActive 
-                  ? "bg-blue-600 text-white shadow-lg shadow-blue-900/20" 
+                isActive
+                  ? "bg-blue-600 text-white shadow-lg shadow-blue-900/20"
                   : "text-slate-400 hover:bg-slate-800 hover:text-white"
               )
             }
@@ -53,15 +68,15 @@ export default function Sidebar() {
       <div className="p-4 border-t border-slate-800 space-y-4">
         <div className="px-4 py-2 bg-slate-800 rounded-lg flex items-center gap-3">
           <Globe size={16} className="text-slate-400" />
-          <select 
-            value={i18n.language} 
+          <select
+            value={currentLang}
             onChange={(e) => changeLanguage(e.target.value)}
             className="bg-transparent text-sm text-white focus:outline-none w-full cursor-pointer uppercase font-medium"
           >
-            <option value="rw" className="text-slate-900">Kinyarwanda (RW)</option>
-            <option value="en" className="text-slate-900">English (EN)</option>
-            <option value="sw" className="text-slate-900">Kiswahili (SW)</option>
-            <option value="fr" className="text-slate-900">Français (FR)</option>
+            <option value="rw" className="text-slate-900">{t('app.languages.rw')}</option>
+            <option value="en" className="text-slate-900">{t('app.languages.en')}</option>
+            <option value="sw" className="text-slate-900">{t('app.languages.sw')}</option>
+            <option value="fr" className="text-slate-900">{t('app.languages.fr')}</option>
           </select>
         </div>
 

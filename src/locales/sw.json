@@ -13,7 +13,12 @@
     "date": "Tarehe",
     "confirmDelete": "Je, unahakika unataka kufuta hii?",
     "yes": "Ndiyo",
-    "no": "Hapana"
+    "no": "Hapana",
+    "name": "Jina",
+    "previous": "Iliyopita",
+    "next": "Ijayo",
+    "page": "Ukurasa",
+    "of": "ya"
   },
   "auth": {
     "loginTitle": "Ufikiaji wa Utawala",
@@ -65,7 +70,70 @@
     "phone": "Simu",
     "initialPassword": "Nenosiri la Awali",
     "passwordNote": "Mtumiaji anaweza kubadilisha hii baadaye.",
-    "createUser": "Unda Mtumiaji"
+    "createUser": "Unda Mtumiaji",
+    "name": "Jina"
+  },
+  "payments": {
+    "title": "Ufuatiliaji wa Malipo",
+    "subtitle": "Fuatilia miamala yote, mapato, na hali za malipo",
+    "reconcile": "Linganisha",
+    "exportReport": "Hamisha Ripoti",
+    "refId": "Ref ID",
+    "user": "Mtumiaji",
+    "ride": "Safari",
+    "method": "Njia",
+    "amount": "Kiasi",
+    "date": "Tarehe",
+    "searchPlaceholder": "Tafuta ref ya muamala...",
+    "allStatuses": "Hali Zote",
+    "allProviders": "Watoa Huduma Wote",
+    "successful": "Imefanikiwa",
+    "pending": "Inasubiri",
+    "failed": "Imeshindikana",
+    "mtn": "MTN MoMo",
+    "airtel": "Airtel Money",
+    "stripe": "Stripe",
+    "flutterwave": "Flutterwave"
+  },
+  "rides": {
+    "title": "Historia ya Safari",
+    "subtitle": "Tazama na dhibiti safari zote za zamani na za sasa",
+    "exportReport": "Hamisha Ripoti",
+    "rideId": "ID ya Safari",
+    "passengerRider": "Abiria & Dereva",
+    "route": "Njia",
+    "fare": "Nauli",
+    "searchPlaceholder": "Tafuta dereva au abiria...",
+    "allStatuses": "Hali Zote",
+    "pending": "Inasubiri",
+    "accepted": "Imekubaliwa",
+    "inProgress": "Inaendelea",
+    "completed": "Imekamilika",
+    "cancelled": "Imefutwa"
+  },
+  "settings": {
+    "title": "Mipangilio ya Mfumo",
+    "subtitle": "Sanidi bei, ada, na vigezo vya mfumo",
+    "baseFare": "Bei ya Msingi",
+    "baseFareHelp": "Bei ya kuanzia kwa kila safari",
+    "perKmRate": "Bei kwa KM",
+    "perKmRateHelp": "Ada kwa umbali wa kilomita",
+    "serviceFeePercent": "Ada ya Huduma (%)",
+    "serviceFeePercentHelp": "Asilimia iliyochukuliwa na jukwaa",
+    "cancellationFee": "Ada ya Kufuta",
+    "cancellationFeeHelp": "Ada ya kufuta baada ya kukubali",
+    "saveChanges": "Hifadhi Mabadiliko",
+    "updateSuccess": "Mipangilio imesasishwa!",
+    "updateError": "Imeshindikana kusasisha mipangilio"
+  },
+  "auditLogs": {
+    "title": "Kumbukumbu za Ukaguzi",
+    "subtitle": "Fuatilia shughuli za mfumo na matukio ya usalama",
+    "allTypes": "Aina Zote",
+    "system": "Mfumo",
+    "alert": "Tahadhari",
+    "noLogsFound": "Hakuna kumbukumbu zilizopatikana.",
+    "targetUser": "Mtumiaji Lengwa"
   },
   "landing": {
     "nav": {
@@ -118,6 +186,15 @@
     "footer": {
       "production": "Mazingira ya Uzalishaji",
       "support": "Msaada"
+    }
+  },
+  "app": {
+    "brand": "IMove Admin",
+    "languages": {
+      "rw": "Kinyarwanda (RW)",
+      "en": "Kiingereza (EN)",
+      "sw": "Kiswahili (SW)",
+      "fr": "Kifaransa (FR)"
     }
   }
 }

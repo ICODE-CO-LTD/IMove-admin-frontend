@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { adminService } from '../services/adminService';
 import { Loader2, Save, RefreshCw } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Settings() {
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [formData, setFormData] = useState({
     base_fare: '',
@@ -34,10 +36,10 @@ export default function Settings() {
     mutationFn: adminService.updateSettings,
     onSuccess: () => {
       queryClient.invalidateQueries(['settings']);
-      alert('Settings updated successfully!');
+      alert(t('settings.updateSuccess'));
     },
     onError: (error) => {
-      alert(`Failed to update settings: ${error.message}`);
+      alert(`${t('settings.updateError')}: ${error.message}`);
     },
   });
 
@@ -66,8 +68,8 @@ export default function Settings() {
     <div className="max-w-2xl mx-auto space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-2xl font-bold text-slate-800">System Configuration</h2>
-          <p className="text-slate-500 mt-1">Manage global app settings and pricing</p>
+          <h2 className="text-2xl font-bold text-slate-800">{t('settings.title')}</h2>
+          <p className="text-slate-500 mt-1">{t('settings.subtitle')}</p>
         </div>
       </div>
 
@@ -76,7 +78,7 @@ export default function Settings() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Base Fare ({formData.currency})
+                {t('settings.baseFare')} ({formData.currency})
               </label>
               <input
                 type="number"
@@ -86,12 +88,12 @@ export default function Settings() {
                 className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
-              <p className="text-xs text-slate-400 mt-1">Starting price for every ride</p>
+              <p className="text-xs text-slate-400 mt-1">{t('settings.baseFareHelp')}</p>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Price per KM ({formData.currency})
+                {t('settings.perKmRate')} ({formData.currency})
               </label>
               <input
                 type="number"
@@ -101,12 +103,12 @@ export default function Settings() {
                 className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
-              <p className="text-xs text-slate-400 mt-1">Charge per kilometer distance</p>
+              <p className="text-xs text-slate-400 mt-1">{t('settings.perKmRateHelp')}</p>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Service Fee (%)
+                {t('settings.serviceFeePercent')}
               </label>
               <input
                 type="number"
@@ -118,12 +120,12 @@ export default function Settings() {
                 min="0"
                 max="100"
               />
-               <p className="text-xs text-slate-400 mt-1">Percentage taken by platform</p>
+               <p className="text-xs text-slate-400 mt-1">{t('settings.serviceFeePercentHelp')}</p>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Cancellation Fee ({formData.currency})
+                {t('settings.cancellationFee')} ({formData.currency})
               </label>
               <input
                 type="number"
@@ -133,7 +135,7 @@ export default function Settings() {
                 className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
-               <p className="text-xs text-slate-400 mt-1">Fee for cancelling after acceptance</p>
+               <p className="text-xs text-slate-400 mt-1">{t('settings.cancellationFeeHelp')}</p>
             </div>
           </div>
 
@@ -144,7 +146,7 @@ export default function Settings() {
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"
             >
               {mutation.isPending ? <Loader2 className="animate-spin" size={18} /> : <Save size={18} />}
-              Save Changes
+              {t('settings.saveChanges')}
             </button>
           </div>
         </form>

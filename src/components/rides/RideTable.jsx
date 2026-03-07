@@ -3,8 +3,10 @@ import { useQuery } from '@tanstack/react-query';
 import { adminService } from '../../services/adminService';
 import { Loader2, Search, Filter, MapPin, Calendar, ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 export default function RideTable() {
+  const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState(''); // Rider or Passenger name
   const [status, setStatus] = useState('');
@@ -42,7 +44,7 @@ export default function RideTable() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
           <input
             type="text"
-            placeholder="Search rider or passenger..."
+            placeholder={t('rides.searchPlaceholder')}
             className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={search}
             onChange={handleSearch}
@@ -56,12 +58,12 @@ export default function RideTable() {
             value={status}
             onChange={handleStatusFilter}
           >
-            <option value="">All Statuses</option>
-            <option value="pending">Pending</option>
-            <option value="accepted">Accepted</option>
-            <option value="in_progress">In Progress</option>
-            <option value="completed">Completed</option>
-            <option value="cancelled">Cancelled</option>
+            <option value="">{t('rides.allStatuses')}</option>
+            <option value="pending">{t('rides.pending')}</option>
+            <option value="accepted">{t('rides.accepted')}</option>
+            <option value="in_progress">{t('rides.inProgress')}</option>
+            <option value="completed">{t('rides.completed')}</option>
+            <option value="cancelled">{t('rides.cancelled')}</option>
           </select>
         </div>
       </div>
@@ -70,12 +72,12 @@ export default function RideTable() {
         <table className="w-full text-left text-sm text-slate-600">
           <thead className="bg-slate-50 text-slate-700 font-semibold uppercase text-xs">
             <tr>
-              <th className="px-6 py-4">Ride ID</th>
-              <th className="px-6 py-4">Passenger & Rider</th>
-              <th className="px-6 py-4">Route</th>
-              <th className="px-6 py-4">Status</th>
-              <th className="px-6 py-4">Fare</th>
-              <th className="px-6 py-4">Date</th>
+              <th className="px-6 py-4">{t('rides.rideId')}</th>
+              <th className="px-6 py-4">{t('rides.passengerRider')}</th>
+              <th className="px-6 py-4">{t('rides.route')}</th>
+              <th className="px-6 py-4">{t('common.status')}</th>
+              <th className="px-6 py-4">{t('rides.fare')}</th>
+              <th className="px-6 py-4">{t('payments.date')}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
@@ -118,7 +120,7 @@ export default function RideTable() {
                       ride.status === 'in_progress' ? 'bg-blue-100 text-blue-800' :
                       'bg-yellow-100 text-yellow-800'
                     }`}>
-                    {ride.status.replace('_', ' ')}
+                    {t(`rides.${ride.status}`)}
                   </span>
                 </td>
                 <td className="px-6 py-4 font-medium text-slate-900">
@@ -142,17 +144,17 @@ export default function RideTable() {
           onClick={() => setPage(p => p - 1)}
           className="px-3 py-1 border border-slate-200 rounded-md text-sm disabled:opacity-50 hover:bg-slate-50"
         >
-          Previous
+          {t('common.previous')}
         </button>
         <span className="text-sm text-slate-500">
-          Page {pagination?.page} of {pagination?.pages}
+          {t('common.page')} {pagination?.page} {t('common.of')} {pagination?.pages}
         </span>
         <button
           disabled={page >= (pagination?.pages || 1)}
           onClick={() => setPage(p => p + 1)}
           className="px-3 py-1 border border-slate-200 rounded-md text-sm disabled:opacity-50 hover:bg-slate-50"
         >
-          Next
+          {t('common.next')}
         </button>
       </div>
     </div>

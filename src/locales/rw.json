@@ -13,7 +13,12 @@
     "date": "Itariki",
     "confirmDelete": "Uremeza ko ushaka gusiba ibi?",
     "yes": "Yego",
-    "no": "Oya"
+    "no": "Oya",
+    "name": "Izina",
+    "previous": "Ubanza",
+    "next": "Ukomeza",
+    "page": "Urupapuro",
+    "of": "ku"
   },
   "auth": {
     "loginTitle": "Kwinjira nk'Ubuyobozi",
@@ -35,7 +40,6 @@
     "auditLogs": "Raporo",
     "logout": "Sohoka"
   },
-
   "dashboard": {
     "title": "Incamake y'Imikorere",
     "totalUsers": "Abakoresha Bose",
@@ -73,7 +77,70 @@
     "phone": "Telefoni",
     "initialPassword": "Ijambo ry'ibanga ry'ibanze",
     "passwordNote": "Umukoresha azashobora kurihindura hanyuma.",
-    "createUser": "Kora Umukoresha"
+    "createUser": "Kora Umukoresha",
+    "name": "Izina"
+  },
+  "payments": {
+    "title": "Gukurikirana Kwishyura",
+    "subtitle": "Kurikirana ibikorwa byose byo kwishyura, inyungu, na imiterere y'ubwishyu",
+    "reconcile": "Huzuza",
+    "exportReport": "Kohereza Raporo",
+    "refId": "Ref ID",
+    "user": "Umukoresha",
+    "ride": "Ingendo",
+    "method": "Uburyo",
+    "amount": "Amafaranga",
+    "date": "Itariki",
+    "searchPlaceholder": "Shakisha ref ya transaction...",
+    "allStatuses": "Imiterere Yose",
+    "allProviders": "Abatanga Serivisi Bose",
+    "successful": "Byakunze",
+    "pending": "Bitegereje",
+    "failed": "Byanze",
+    "mtn": "MTN MoMo",
+    "airtel": "Airtel Money",
+    "stripe": "Stripe",
+    "flutterwave": "Flutterwave"
+  },
+  "rides": {
+    "title": "Amateka y'Ingendo",
+    "subtitle": "Reba kandi ucunge ingendo zose zashize n'iziri kuba",
+    "exportReport": "Kohereza Raporo",
+    "rideId": "ID y'Ingendo",
+    "passengerRider": "Umukiliya & Umushoferi",
+    "route": "Inzira",
+    "fare": "Amafaranga",
+    "searchPlaceholder": "Shakisha umushoferi cyangwa umukiliya...",
+    "allStatuses": "Imiterere Yose",
+    "pending": "Bitegereje",
+    "accepted": "Byemejwe",
+    "inProgress": "Biri kuba",
+    "completed": "Byarangiye",
+    "cancelled": "Byahagaritswe"
+  },
+  "settings": {
+    "title": "Igenamiterere ya Sisitemu",
+    "subtitle": "Kuboneza ibiciro, amafaranga, n'ibipimo bya sisitemu",
+    "baseFare": "Igiciro cy'ibanze",
+    "baseFareHelp": "Igiciro cyo gutangira buri ngendo",
+    "perKmRate": "Igiciro kuri KM",
+    "perKmRateHelp": "Amafaranga ku kirometero",
+    "serviceFeePercent": "Amafaranga ya Serivisi (%)",
+    "serviceFeePercentHelp": "Ijanisha ryafashwe na pulatifomu",
+    "cancellationFee": "Amafaranga yo Guhagarika",
+    "cancellationFeeHelp": "Amafaranga yo guhagarika nyuma yo kwemera",
+    "saveChanges": "Bika Impinduka",
+    "updateSuccess": "Igenamiterere byavuguruwe neza!",
+    "updateError": "Ntibyashobotse kuvugurura igenamiterere"
+  },
+  "auditLogs": {
+    "title": "Imbonerahamwe y'Igikorwa",
+    "subtitle": "Kurikirana ibikorwa bya sisitemu n'ibibazo by'umutekano",
+    "allTypes": "Ubwoko Bwose",
+    "system": "Sisitemu",
+    "alert": "Iburira",
+    "noLogsFound": "Nta mbonerahamwe zabonetse.",
+    "targetUser": "Umukoresha Wigamijwe"
   },
   "landing": {
     "nav": {
@@ -126,6 +193,15 @@
     "footer": {
       "production": "Ibidukikije by'Umusaruro",
       "support": "Ubufasha"
+    }
+  },
+  "app": {
+    "brand": "IMove Ubuyobozi",
+    "languages": {
+      "rw": "Kinyarwanda (RW)",
+      "en": "Icyongereza (EN)",
+      "sw": "Kiswahili (SW)",
+      "fr": "Igifaransa (FR)"
     }
   }
 }

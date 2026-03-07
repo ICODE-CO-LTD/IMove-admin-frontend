@@ -13,7 +13,12 @@
     "date": "Date",
     "confirmDelete": "Êtes-vous sûr de vouloir supprimer ceci ?",
     "yes": "Oui",
-    "no": "Non"
+    "no": "Non",
+    "name": "Nom",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "page": "Page",
+    "of": "de"
   },
   "auth": {
     "loginTitle": "Accès Administrateur",
@@ -65,7 +70,70 @@
     "phone": "Téléphone",
     "initialPassword": "Mot de passe initial",
     "passwordNote": "L'utilisateur pourra le changer plus tard.",
-    "createUser": "Créer Utilisateur"
+    "createUser": "Créer Utilisateur",
+    "name": "Nom"
+  },
+  "payments": {
+    "title": "Surveillance des Paiements",
+    "subtitle": "Suivre toutes les transactions, revenus et statuts de paiement",
+    "reconcile": "Rapprocher",
+    "exportReport": "Exporter Rapport",
+    "refId": "Ref ID",
+    "user": "Utilisateur",
+    "ride": "Trajet",
+    "method": "Méthode",
+    "amount": "Montant",
+    "date": "Date",
+    "searchPlaceholder": "Rechercher référence transaction...",
+    "allStatuses": "Tous les Statuts",
+    "allProviders": "Tous les Fournisseurs",
+    "successful": "Réussi",
+    "pending": "En Attente",
+    "failed": "Échoué",
+    "mtn": "MTN MoMo",
+    "airtel": "Airtel Money",
+    "stripe": "Stripe",
+    "flutterwave": "Flutterwave"
+  },
+  "rides": {
+    "title": "Historique des Trajets",
+    "subtitle": "Voir et gérer tous les trajets passés et actuels",
+    "exportReport": "Exporter Rapport",
+    "rideId": "ID Trajet",
+    "passengerRider": "Passager & Chauffeur",
+    "route": "Itinéraire",
+    "fare": "Tarif",
+    "searchPlaceholder": "Rechercher chauffeur ou passager...",
+    "allStatuses": "Tous les Statuts",
+    "pending": "En Attente",
+    "accepted": "Accepté",
+    "inProgress": "En Cours",
+    "completed": "Terminé",
+    "cancelled": "Annulé"
+  },
+  "settings": {
+    "title": "Paramètres Système",
+    "subtitle": "Configurer les prix, frais et paramètres système",
+    "baseFare": "Tarif de Base",
+    "baseFareHelp": "Prix de départ pour chaque trajet",
+    "perKmRate": "Prix par KM",
+    "perKmRateHelp": "Charge par distance kilométrique",
+    "serviceFeePercent": "Frais de Service (%)",
+    "serviceFeePercentHelp": "Pourcentage pris par la plateforme",
+    "cancellationFee": "Frais d'Annulation",
+    "cancellationFeeHelp": "Frais pour annulation après acceptation",
+    "saveChanges": "Enregistrer les Modifications",
+    "updateSuccess": "Paramètres mis à jour avec succès !",
+    "updateError": "Échec de la mise à jour des paramètres"
+  },
+  "auditLogs": {
+    "title": "Journaux d'Audit",
+    "subtitle": "Surveiller les activités système et les événements de sécurité",
+    "allTypes": "Tous les Types",
+    "system": "Système",
+    "alert": "Alerte",
+    "noLogsFound": "Aucun journal trouvé.",
+    "targetUser": "Utilisateur Cible"
   },
   "landing": {
     "nav": {
@@ -118,6 +186,15 @@
     "footer": {
       "production": "Environnement de Production",
       "support": "Support"
+    }
+  },
+  "app": {
+    "brand": "Admin IMove",
+    "languages": {
+      "rw": "Kinyarwanda (RW)",
+      "en": "Anglais (EN)",
+      "sw": "Swahili (SW)",
+      "fr": "Français (FR)"
     }
   }
 }

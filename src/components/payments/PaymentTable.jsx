@@ -3,8 +3,10 @@ import { useQuery } from '@tanstack/react-query';
 import { adminService } from '../../services/adminService';
 import { Loader2, Search, Filter, Calendar, CreditCard, DollarSign } from 'lucide-react';
 import { format } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 export default function PaymentTable() {
+  const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
   const [provider, setProvider] = useState('');
@@ -48,7 +50,7 @@ export default function PaymentTable() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
           <input
             type="text"
-            placeholder="Search transaction ref..."
+            placeholder={t('payments.searchPlaceholder')}
             className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={search}
             onChange={handleSearch}
@@ -62,21 +64,21 @@ export default function PaymentTable() {
             value={status}
             onChange={handleStatusFilter}
           >
-            <option value="">All Statuses</option>
-            <option value="successful">Successful</option>
-            <option value="pending">Pending</option>
-            <option value="failed">Failed</option>
+            <option value="">{t('payments.allStatuses')}</option>
+            <option value="successful">{t('payments.successful')}</option>
+            <option value="pending">{t('payments.pending')}</option>
+            <option value="failed">{t('payments.failed')}</option>
           </select>
            <select 
             className="border border-slate-200 rounded-lg text-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={provider}
             onChange={handleProviderFilter}
           >
-            <option value="">All Providers</option>
-            <option value="mtn">MTN MoMo</option>
-            <option value="airtel">Airtel Money</option>
-            <option value="stripe">Stripe</option>
-            <option value="flutterwave">Flutterwave</option>
+            <option value="">{t('payments.allProviders')}</option>
+            <option value="mtn">{t('payments.mtn')}</option>
+            <option value="airtel">{t('payments.airtel')}</option>
+            <option value="stripe">{t('payments.stripe')}</option>
+            <option value="flutterwave">{t('payments.flutterwave')}</option>
           </select>
         </div>
       </div>
@@ -85,13 +87,13 @@ export default function PaymentTable() {
         <table className="w-full text-left text-sm text-slate-600">
           <thead className="bg-slate-50 text-slate-700 font-semibold uppercase text-xs">
             <tr>
-              <th className="px-6 py-4">Ref ID</th>
-              <th className="px-6 py-4">User</th>
-              <th className="px-6 py-4">Ride</th>
-              <th className="px-6 py-4">Method</th>
-              <th className="px-6 py-4">Amount</th>
-              <th className="px-6 py-4">Status</th>
-              <th className="px-6 py-4">Date</th>
+              <th className="px-6 py-4">{t('payments.refId')}</th>
+              <th className="px-6 py-4">{t('payments.user')}</th>
+              <th className="px-6 py-4">{t('payments.ride')}</th>
+              <th className="px-6 py-4">{t('payments.method')}</th>
+              <th className="px-6 py-4">{t('payments.amount')}</th>
+              <th className="px-6 py-4">{t('common.status')}</th>
+              <th className="px-6 py-4">{t('payments.date')}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
@@ -128,7 +130,7 @@ export default function PaymentTable() {
                       payment.status === 'failed' ? 'bg-red-100 text-red-800' :
                       'bg-yellow-100 text-yellow-800'
                     }`}>
-                    {payment.status}
+                    {t(`payments.${payment.status}`)}
                   </span>
                 </td>
                 <td className="px-6 py-4">
@@ -149,17 +151,17 @@ export default function PaymentTable() {
           onClick={() => setPage(p => p - 1)}
           className="px-3 py-1 border border-slate-200 rounded-md text-sm disabled:opacity-50 hover:bg-slate-50"
         >
-          Previous
+          {t('common.previous')}
         </button>
         <span className="text-sm text-slate-500">
-          Page {pagination?.page} of {pagination?.pages}
+          {t('common.page')} {pagination?.page} {t('common.of')} {pagination?.pages}
         </span>
         <button
           disabled={page >= (pagination?.pages || 1)}
           onClick={() => setPage(p => p + 1)}
           className="px-3 py-1 border border-slate-200 rounded-md text-sm disabled:opacity-50 hover:bg-slate-50"
         >
-          Next
+          {t('common.next')}
         </button>
       </div>
     </div>

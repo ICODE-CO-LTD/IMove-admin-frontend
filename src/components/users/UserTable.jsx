@@ -95,7 +95,7 @@ export default function UserTable() {
         <table className="w-full text-left text-sm text-slate-600">
           <thead className="bg-slate-50 text-slate-700 font-semibold uppercase text-xs">
             <tr>
-              <th className="px-6 py-4">{t('common.role')}</th>
+              <th className="px-6 py-4">{t('common.name')}</th>
               <th className="px-6 py-4">{t('common.role')}</th>
               <th className="px-6 py-4">{t('common.status')}</th>
               <th className="px-6 py-4">{t('users.verification')}</th>
@@ -169,17 +169,17 @@ export default function UserTable() {
           onClick={() => setPage(p => p - 1)}
           className="px-3 py-1 border border-slate-200 rounded-md text-sm disabled:opacity-50 hover:bg-slate-50"
         >
-          Previous
+          {t('common.previous')}
         </button>
         <span className="text-sm text-slate-500">
-          Page {pagination?.page} of {pagination?.pages}
+          {t('common.page')} {pagination?.page} {t('common.of')} {pagination?.pages}
         </span>
         <button
           disabled={page >= (pagination?.pages || 1)}
           onClick={() => setPage(p => p + 1)}
           className="px-3 py-1 border border-slate-200 rounded-md text-sm disabled:opacity-50 hover:bg-slate-50"
         >
-          Next
+          {t('common.next')}
         </button>
       </div>
     </div>

@@ -1,11 +1,14 @@
 import UserTable from '../components/users/UserTable';
+import { useTranslation } from 'react-i18next';
 
 export default function Users() {
+  const { t } = useTranslation();
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-2xl font-bold text-slate-800">User Management</h2>
+          <h2 className="text-2xl font-bold text-slate-800">{t('users.title')}</h2>
           <p className="text-slate-500 mt-1">Manage riders, passengers, and admins</p>
         </div>
         <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
