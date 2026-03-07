@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { adminService } from '../../services/adminService';
 import { Loader2, Search, Filter, MoreVertical, Eye, Ban, CheckCircle, Trash2, Plus } from 'lucide-react';
@@ -9,11 +9,21 @@ import { useTranslation } from 'react-i18next';
 export default function UserTable() {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
+  const [searchInput, setSearchInput] = useState('');
   const [search, setSearch] = useState('');
   const [role, setRole] = useState('');
-  const [selectedUser, setSelectedUser] = useState(null); // For details modal later
+  const [selectedUser, setSelectedUser] = useState(null);
   const [isAddUserOpen, setIsAddUserOpen] = useState(false);
   const queryClient = useQueryClient();
+
+  // Debounce search - wait for user to stop typing before fetching
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearch(searchInput);
+      setPage(1);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [searchInput]);
 
   const deleteMutation = useMutation({
     mutationFn: adminService.deleteUser,
@@ -35,8 +45,7 @@ export default function UserTable() {
   });
 
   const handleSearch = (e) => {
-    setSearch(e.target.value);
-    setPage(1);
+    setSearchInput(e.target.value);
   };
 
   const handleRoleFilter = (e) => {
@@ -64,7 +73,7 @@ export default function UserTable() {
             type="text"
             placeholder={t('common.search')}
             className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={search}
+            value={searchInput}
             onChange={handleSearch}
           />
         </div>

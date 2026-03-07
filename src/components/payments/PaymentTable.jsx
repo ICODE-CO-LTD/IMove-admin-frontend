@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { adminService } from '../../services/adminService';
 import { Loader2, Search, Filter, Calendar, CreditCard, DollarSign } from 'lucide-react';
@@ -8,9 +8,19 @@ import { useTranslation } from 'react-i18next';
 export default function PaymentTable() {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
+  const [searchInput, setSearchInput] = useState('');
   const [search, setSearch] = useState('');
   const [provider, setProvider] = useState('');
   const [status, setStatus] = useState('');
+
+  // Debounce search - wait for user to stop typing before fetching
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearch(searchInput);
+      setPage(1);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [searchInput]);
 
   const { data, isLoading } = useQuery({
     queryKey: ['payments', page, search, provider, status],
@@ -19,8 +29,7 @@ export default function PaymentTable() {
   });
 
   const handleSearch = (e) => {
-    setSearch(e.target.value);
-    setPage(1);
+    setSearchInput(e.target.value);
   };
 
   const handleProviderFilter = (e) => {
@@ -52,7 +61,7 @@ export default function PaymentTable() {
             type="text"
             placeholder={t('payments.searchPlaceholder')}
             className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={search}
+            value={searchInput}
             onChange={handleSearch}
           />
         </div>
