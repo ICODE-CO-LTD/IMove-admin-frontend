@@ -35,6 +35,7 @@ export default function Sidebar() {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     setCurrentLang(lng);
+    localStorage.setItem('language', lng);
   };
 
   return (

@@ -53,6 +53,8 @@
   },
   "users": {
     "title": "Gestion des Utilisateurs",
+    "subtitle": "Gérer les conducteurs, les passagers et les administrateurs",
+    "exportCSV": "Exporter CSV",
     "addUser": "Ajouter un Utilisateur",
     "allRoles": "Tous les Rôles",
     "passenger": "Passager",

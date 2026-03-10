@@ -53,6 +53,8 @@
   },
   "users": {
     "title": "Usimamizi wa Watumiaji",
+    "subtitle": "Dhibiti waendeshaji, abiria na wasimamizi",
+    "exportCSV": "Hamisha CSV",
     "addUser": "Ongeza Mtumiaji",
     "allRoles": "Majukumu Yote",
     "passenger": "Abiria",

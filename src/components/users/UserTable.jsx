@@ -10,20 +10,11 @@ export default function UserTable() {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [searchInput, setSearchInput] = useState('');
-  const [search, setSearch] = useState('');
   const [role, setRole] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
   const [isAddUserOpen, setIsAddUserOpen] = useState(false);
   const queryClient = useQueryClient();
-
-  // Debounce search - wait for user to stop typing before fetching
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setSearch(searchInput);
-      setPage(1);
-    }, 300);
-    return () => clearTimeout(timer);
-  }, [searchInput]);
+  const itemsPerPage = 8;
 
   const deleteMutation = useMutation({
     mutationFn: adminService.deleteUser,
@@ -38,14 +29,14 @@ export default function UserTable() {
     }
   };
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['users', page, search, role],
-    queryFn: () => adminService.getUsers({ page, search, role }),
-    keepPreviousData: true,
+  const { data: allData, isLoading } = useQuery({
+    queryKey: ['users'],
+    queryFn: () => adminService.getUsers({ limit: 1000 }), // Fetch a large amount to simulate all
   });
 
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
+    setPage(1);
   };
 
   const handleRoleFilter = (e) => {
@@ -61,7 +52,22 @@ export default function UserTable() {
     );
   }
 
-  const { users, pagination } = data || {};
+  const allUsers = allData?.users || [];
+
+  // Client-side filtering
+  const filteredUsers = allUsers.filter(user => {
+    const matchesSearch = !searchInput || 
+      user.full_name.toLowerCase().includes(searchInput.toLowerCase()) ||
+      user.email.toLowerCase().includes(searchInput.toLowerCase());
+    const matchesRole = !role || user.role === role;
+    return matchesSearch && matchesRole;
+  });
+
+  // Client-side pagination
+  const totalItems = filteredUsers.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const startIndex = (page - 1) * itemsPerPage;
+  const users = filteredUsers.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <>
@@ -181,10 +187,10 @@ export default function UserTable() {
           {t('common.previous')}
         </button>
         <span className="text-sm text-slate-500">
-          {t('common.page')} {pagination?.page} {t('common.of')} {pagination?.pages}
+          {t('common.page')} {page} {t('common.of')} {totalPages || 1}
         </span>
         <button
-          disabled={page >= (pagination?.pages || 1)}
+          disabled={page >= totalPages}
           onClick={() => setPage(p => p + 1)}
           className="px-3 py-1 border border-slate-200 rounded-md text-sm disabled:opacity-50 hover:bg-slate-50"
         >

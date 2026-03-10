@@ -9,11 +9,11 @@ export default function AuditLogs() {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [type, setType] = useState('');
+  const itemsPerPage = 10;
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['logs', page, type],
-    queryFn: () => adminService.getLogs({ page, type }),
-    keepPreviousData: true,
+  const { data: allData, isLoading } = useQuery({
+    queryKey: ['logs'],
+    queryFn: () => adminService.getLogs({ limit: 1000 }), // Fetch a large amount to simulate all
   });
 
   if (isLoading) {
@@ -24,7 +24,18 @@ export default function AuditLogs() {
     );
   }
 
-  const { logs, pagination } = data || {};
+  const allLogs = allData?.logs || [];
+  
+  // Client-side filtering
+  const filteredLogs = type 
+    ? allLogs.filter(log => log.type === type)
+    : allLogs;
+
+  // Client-side pagination
+  const totalItems = filteredLogs.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const startIndex = (page - 1) * itemsPerPage;
+  const logs = filteredLogs.slice(startIndex, startIndex + itemsPerPage);
 
   const getIcon = (type) => {
     switch (type) {
@@ -99,10 +110,10 @@ export default function AuditLogs() {
             {t('common.previous')}
             </button>
             <span className="text-sm text-slate-500">
-            {t('common.page')} {pagination?.page} {t('common.of')} {pagination?.pages}
+            {t('common.page')} {page} {t('common.of')} {totalPages || 1}
             </span>
             <button
-            disabled={page >= (pagination?.pages || 1)}
+            disabled={page >= totalPages}
             onClick={() => setPage(p => p + 1)}
             className="px-3 py-1 border border-slate-200 rounded-md text-sm disabled:opacity-50 hover:bg-white"
             >

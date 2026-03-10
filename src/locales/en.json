@@ -53,6 +53,8 @@
   },
   "users": {
     "title": "User Management",
+    "subtitle": "Manage riders, passengers, and admins",
+    "exportCSV": "Export CSV",
     "addUser": "Add User",
     "allRoles": "All Roles",
     "passenger": "Passenger",

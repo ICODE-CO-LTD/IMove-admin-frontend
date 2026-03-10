@@ -59,7 +59,9 @@
     "ongoingRide": "Urugendo Ruri Kuba"
   },
   "users": {
-    "title": "Gucunga Abakoresha",
+    "title": "Abakoresha",
+    "subtitle": "Abamotari, abagenzi, n'abayobozi",
+    "exportCSV": "Kohereza CSV",
     "addUser": "Ongeramo Umukoresha",
     "allRoles": "Inshingano Zose",
     "passenger": "Umugenzi",
